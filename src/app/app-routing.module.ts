@@ -5,6 +5,7 @@ import { FullComponent } from './layouts/full/full.component';
 import { FrontPageComponent } from './pages/front-page/front-page/front-page.component';
 import { BooksComponent } from './pages/Books/books/books.component';
 import { UsersComponent } from './pages/users/users.component';
+import { AuthGuard } from './SERVICE/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./pages/pages.module').then((m) => m.PagesModule),
+           canActivate: [AuthGuard]
       },
       {
         path: 'ui-components',
@@ -37,7 +39,7 @@ const routes: Routes = [
       {
         path: 'books',
         pathMatch: 'full',
-        component: BooksComponent
+        component: BooksComponent, canActivate: [AuthGuard]
       },
       {
         path: 'users',
