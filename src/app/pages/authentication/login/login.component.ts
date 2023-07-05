@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class AppSideLoginComponent {
   username: string;
@@ -34,7 +35,7 @@ export class AppSideLoginComponent {
        // console.log('JWT token stored in local storage:', token);
         // Handle the role based on your application logic
         if (role === 'ADMIN') {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/books']);
         } else if (role === 'USER') {
           this.router.navigate(['/front-page']);
         } else {

@@ -10,11 +10,6 @@ export const navItems: NavItem[] = [
     route: '/dashboard',
   },
   {
-    displayName: 'Front',
-    iconName: 'home',
-    route: '/front-page',
-  },
-  {
     displayName: 'Books',
     iconName: 'book',
     route: '/books',
@@ -24,6 +19,12 @@ export const navItems: NavItem[] = [
     iconName: 'user',
     route: '/users',
   },
+  {
+    displayName: 'Front',
+    iconName: 'home',
+    route: '/front-page',
+  },
+  
   {
     navCap: 'Ui Components',
   },

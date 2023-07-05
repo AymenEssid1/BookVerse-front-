@@ -1,27 +1,30 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
+  
 })
 export class AppSideRegisterComponent {
-  constructor() {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  form = new FormGroup({
+  formb = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
 
   get f() {
-    return this.form.controls;
+    return this.formb.controls;
   }
 
   register() {
-    if (this.form.valid) {
+    if (this.formb.valid) {
       const url = 'http://localhost:8080/api/v1/auth/register';
       const requestData = {
         firstname: this.f.firstname.value,
@@ -30,16 +33,16 @@ export class AppSideRegisterComponent {
         password: this.f.password.value,
       };
 
-      axios
-        .post(url, requestData)
-        .then((response: any) => {
-          // Registration successful, handle response as needed
-          console.log('Registration successful:', response.data);
-        })
-        .catch((error) => {
-          // Registration failed, handle error
-          console.error('Registration failed:', error);
-        });
+      this.http.post(url, requestData)
+        .subscribe(
+          (response: any) => {
+            console.log('Registration successful:', response);
+            this.router.navigate(['/authentication/login']);
+          },
+          (error) => {
+            console.error('Registration failed:', error);
+          }
+        );
     }
   }
 }
