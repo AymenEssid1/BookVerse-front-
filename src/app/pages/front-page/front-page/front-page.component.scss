@@ -1,0 +1,38 @@
+.book-image {
+    max-width: 100px; /* Adjust this value to your desired width */
+    max-height: 100px; /* Adjust this value to your desired height */
+  }
+
+  .productcard {
+    overflow: visible !important;
+  }
+  
+  .rating-stars {
+    display: inline-flex;
+    gap: 2px;
+    align-items: center;
+  }
+  
+  .star-icon {
+    font-size: 16px;
+  }
+  
+  .star-icon::before {
+    content: "\2605"; /* Unicode character for star symbol */
+  }
+  
+  .star-icon.filled {
+    color: #f7ce47; /* Filled star color */
+  }
+  
+  .star-icon.half-filled {
+    position: relative;
+    color: #f7ce47; /* Half-filled star color */
+    clip-path: inset(0 calc(100% - 57% - 1px) 0 0); /* Clip the top half of the star */
+  }
+  
+  .star-icon.empty {
+    color: #000000; /* Empty star color */
+  }
+  
+  

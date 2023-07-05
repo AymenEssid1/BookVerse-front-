@@ -1,0 +1,43 @@
+<div class="form-container">
+  <h1>Edit page</h1>
+
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+
+    <div class="form-field">
+      <label for="author">Author:</label>
+      <input type="text" id="author" formControlName="author">
+    </div>
+
+    <div class="form-field">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label for="price">Price:</label>
+      <input type="number" id="price" formControlName="price">
+    </div>
+    <div class="form-field">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" formControlName="quantity">
+    </div>
+
+    <div class="form-field">
+      <label for="category">Category:</label>
+      <select id="category" formControlName="category">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+
+    <label for="fileInput">
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".jpg,.jpeg,.png" style="display: none" />
+      Click here to Edit Image (OPTIONAL)
+    </label>
+    <button type="submit">Update</button>
+    <!--<button type="button" (click)="closePopup()">Close</button>-->
+  </form>
+</div>
