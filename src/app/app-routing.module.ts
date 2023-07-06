@@ -4,7 +4,7 @@ import { BlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
 import { FrontPageComponent } from './pages/front-page/front-page.component';
 import { BooksComponent } from './pages/Books/books/books.component';
-import { UsersComponent } from './pages/users/users.component';
+import { UsersComponent } from './pages/User/users/users.component';
 import { AuthGuard } from './SERVICE/auth.guard';
 
 const routes: Routes = [

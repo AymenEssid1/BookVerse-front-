@@ -105,9 +105,7 @@ export class BooksComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The popup was closed');
-      if (result === 'updated') {
-        this.refreshBooks(); // Call the refreshBooks() method when the book is updated
-      }
+      
     });
   }
 

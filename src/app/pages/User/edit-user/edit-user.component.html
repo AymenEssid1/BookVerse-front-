@@ -1,0 +1,49 @@
+<div class="form-container">
+  <h1>Edit page</h1>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="firstname">firstname</label>
+      <input type="text" id="firstname" formControlName="firstname">
+      <div *ngIf="userForm.controls['firstname'].errors && userForm.controls['firstname'].errors['required']" class="error-message flash-red">
+        First name is required.
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="lastname">lastname</label>
+      <input type="text" id="lastname" formControlName="lastname">
+      <div *ngIf="userForm.controls['lastname'].errors && userForm.controls['lastname'].errors['required']" class="error-message flash-red">
+        Last name is required.
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="email">email</label>
+      <input type="text" id="email" formControlName="email">
+      <div *ngIf="userForm.controls['email'].errors?.['invalidEmail']" class="error-message flash-red">
+        Invalid email format.
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="password">password</label>
+      <input type="text" id="password" formControlName="password">
+      <div *ngIf="userForm.controls['password'].errors && userForm.controls['password'].errors['required']" class="error-message flash-red">
+        Password is required.
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="role">Role:</label>
+      <select id="role" formControlName="role">
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+      <div *ngIf="userForm.controls['role'].errors && userForm.controls['role'].errors['required']" class="error-message flash-red">
+        Role is required.
+      </div>
+    </div>
+
+    <button type="submit">Update</button>
+  </form>
+</div>

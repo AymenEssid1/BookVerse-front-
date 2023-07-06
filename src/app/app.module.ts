@@ -31,7 +31,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AddBookComponent } from './pages/Books/add-book/add-book.component';
 
 import { MatSortModule } from '@angular/material/sort';
-import { UsersComponent } from './pages/users/users.component';
+import { UsersComponent } from './pages/User/users/users.component';
+import { EditUserComponent } from './pages/User/edit-user/edit-user.component';
+
 
 
 
@@ -48,7 +50,8 @@ import { UsersComponent } from './pages/users/users.component';
     BooksComponent,
     EditBookComponent,
     AddBookComponent,
-    UsersComponent
+    UsersComponent,
+    EditUserComponent
   ],
   imports: [
     

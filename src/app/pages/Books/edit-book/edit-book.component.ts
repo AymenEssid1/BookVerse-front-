@@ -1,5 +1,5 @@
 import { BookService } from 'src/app/SERVICE/BookService';
-import { Component, Input,Inject, OnInit,EventEmitter,Output } from '@angular/core';
+import { Component, Input, Inject, OnInit, EventEmitter, Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -24,8 +24,8 @@ export class EditBookComponent {
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
     private bookUpdateService: BookUpdateService
-  ){}
-  
+  ) { }
+
   ngOnInit() {
     this.bookForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -40,7 +40,7 @@ export class EditBookComponent {
       (response) => {
         this.booky = response;
         this.populateForm();
-        this.loadCategories(); 
+        this.loadCategories();
       },
       (error) => {
         console.error('Error retrieving book:', error);
@@ -71,26 +71,24 @@ export class EditBookComponent {
     );
   }
 
-  closePopup(): void {
-    this.dialogRef.close();
-  }
+ 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
   onSubmit() {
-    const bookId = this.data.bookId; // Assuming `data.bookId` is the ID of the book being updated
-  
+    const bookId = this.data.bookId;
+
     if (this.selectedFile) {
       // Upload the selected file
       this.bookService.updateBookImage(bookId, this.selectedFile).subscribe(
         (response: any) => {
           console.log('Image upload successful', response);
-          this.updateBook(); // Call `updateBook` after successful image upload
+          this.updateBook();
         },
         (error: any) => {
           console.error('Image upload failed', error);
-          // Handle the error response if needed
+
         }
       );
     } else {
@@ -98,30 +96,30 @@ export class EditBookComponent {
       this.updateBook();
     }
   }
-  
+
   updateBook() {
     if (this.bookForm.valid) {
       const updatedBook = this.bookForm.value;
       const bookId = this.data.bookId;
-  
+
       this.bookService.updateBook(bookId, updatedBook).subscribe(
         (response) => {
           console.log('Book updated successfully:', response);
-          this.dialogRef.close(); // Close the dialog
-  
+          this.dialogRef.close();
+
           this.snackBar.open('Book updated successfully', 'Close', {
             duration: 3000,
             verticalPosition: 'bottom',
           });
-  
+
           this.bookUpdateService.emitBookUpdated();
         },
         (error) => {
           console.error('Error updating book:', error);
-          // Handle error scenario and display appropriate message if needed
+
         }
       );
     }
   }
-  
+
 }
