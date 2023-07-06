@@ -26,11 +26,11 @@ export interface booksData {
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit {
-  @ViewChild(MatSort) sort: MatSort;
+  //@ViewChild(MatSort) sort: MatSort;
   books: booksData[];
   booky: any;
   bookId: number;
-  imageUrl: string;
+  //imageUrl: string;
   displayedColumns: string[] = ['Book', 'price', 'quantity', 'category', 'action'];
   searchQuery: string;
   searchQuerySubject: Subject<string> = new Subject<string>();
