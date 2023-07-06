@@ -23,7 +23,7 @@ import { SidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HeaderComponent } from './layouts/full/header/header.component';
 import { BrandingComponent } from './layouts/full/sidebar/branding.component';
 import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
-import { FrontPageComponent } from './pages/front-page/front-page/front-page.component';
+import { FrontPageComponent } from './pages/front-page/front-page.component';
 import { BooksComponent } from './pages/Books/books/books.component';
 import { EditBookComponent } from './pages/Books/edit-book/edit-book.component';
 
