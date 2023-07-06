@@ -3,7 +3,7 @@ import { Component, Input, Inject, OnInit, EventEmitter, Output } from '@angular
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BookUpdateService } from 'src/app/SERVICE/book-update.service';
+import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class EditBookComponent {
     @Inject(MAT_DIALOG_DATA) public data: { bookId: number }, //this shit injects the id from the parent componenet AKA books.compo
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-    private bookUpdateService: BookUpdateService
+    private pageUpdateService: PageUpdateService
   ) { }
 
   ngOnInit() {
@@ -112,7 +112,7 @@ export class EditBookComponent {
             verticalPosition: 'bottom',
           });
 
-          this.bookUpdateService.emitBookUpdated();
+          this.pageUpdateService.emitPageUpdated();
         },
         (error) => {
           console.error('Error updating book:', error);

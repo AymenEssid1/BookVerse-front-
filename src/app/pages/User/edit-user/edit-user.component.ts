@@ -3,7 +3,7 @@ import { Component, Input,Inject, OnInit,EventEmitter,Output } from '@angular/co
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators, FormControl  } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BookUpdateService } from 'src/app/SERVICE/book-update.service';
+import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 
 const emailValidator = (control: FormControl) => {
   const email = control.value;
@@ -29,7 +29,7 @@ export class EditUserComponent {
     @Inject(MAT_DIALOG_DATA) public data: { userId: number }, //this shit injects the id from the parent componenet AKA books.compo
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-    private bookUpdateService: BookUpdateService
+    private pageUpdateService: PageUpdateService
   ){}
 
     ngOnInit(){
@@ -103,7 +103,7 @@ export class EditUserComponent {
               verticalPosition: 'bottom',
             });
     
-            this.bookUpdateService.emitBookUpdated();
+            this.pageUpdateService.emitPageUpdated();
           },
           (error) => {
             console.error('Error updating user:', error);

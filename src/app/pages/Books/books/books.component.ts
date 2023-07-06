@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BookService } from 'src/app/SERVICE/BookService';
 import { EditBookComponent } from 'src/app/pages/Books/edit-book/edit-book.component';
 import { MatDialog } from '@angular/material/dialog';
-import { BookUpdateService } from 'src/app/SERVICE/book-update.service';
+import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 import { AddBookComponent } from '../add-book/add-book.component';
 import { MatSort } from '@angular/material/sort';
 import { Subject, Observable, fromEvent } from 'rxjs';
@@ -38,7 +38,7 @@ export class BooksComponent implements OnInit {
 
   constructor(private bookService: BookService,
     private dialog: MatDialog,
-    private bookUpdateService: BookUpdateService) { }
+    private pageUpdateService: PageUpdateService) { }
   
 
 
@@ -53,7 +53,7 @@ export class BooksComponent implements OnInit {
     );
 
     // Subscribe to the bookUpdateService for updates
-    this.bookUpdateService.bookUpdated$.subscribe(() => {
+    this.pageUpdateService.pageUpdated$.subscribe(() => {
       this.refreshBooks();
     });
 

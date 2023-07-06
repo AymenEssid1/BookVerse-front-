@@ -1,6 +1,6 @@
 
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -40,8 +40,13 @@ export class UserService {
       }
 
 
-
-
+      addUser(role: string, addedUser: any): Observable<any> {
+        const token = localStorage.getItem('jwtToken');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+        const params = new HttpParams().set('role', role);
+        return this.http.post<any>(`${this.baseUrl}/addUser`, addedUser, { headers, params });
+      }
+      
 
 
 

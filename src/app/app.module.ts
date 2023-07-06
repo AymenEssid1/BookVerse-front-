@@ -33,6 +33,7 @@ import { AddBookComponent } from './pages/Books/add-book/add-book.component';
 import { MatSortModule } from '@angular/material/sort';
 import { UsersComponent } from './pages/User/users/users.component';
 import { EditUserComponent } from './pages/User/edit-user/edit-user.component';
+import { AddUserComponent } from './pages/User/add-user/add-user.component';
 
 
 
@@ -51,7 +52,8 @@ import { EditUserComponent } from './pages/User/edit-user/edit-user.component';
     EditBookComponent,
     AddBookComponent,
     UsersComponent,
-    EditUserComponent
+    EditUserComponent,
+    AddUserComponent
   ],
   imports: [
     

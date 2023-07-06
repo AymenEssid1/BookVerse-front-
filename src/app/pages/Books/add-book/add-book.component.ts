@@ -7,7 +7,7 @@ import { Component, Input,Inject, OnInit,EventEmitter,Output } from '@angular/co
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BookUpdateService } from 'src/app/SERVICE/book-update.service';
+import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 
 
 @Component({
@@ -34,7 +34,7 @@ export class AddBookComponent {
     public dialogRef: MatDialogRef<EditBookComponent>,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-    private bookUpdateService: BookUpdateService
+    private pageUpdateService: PageUpdateService
   ){
     
   }
@@ -57,7 +57,7 @@ export class AddBookComponent {
     (response) => {
       // Handle success response
       this.openSnackBar('Book Added', 'Close');
-      this.bookUpdateService.emitBookUpdated();
+      this.pageUpdateService.emitPageUpdated();
       this.resetForm();
       
     },

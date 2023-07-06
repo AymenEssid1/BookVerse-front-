@@ -5,8 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { Subject, Observable, fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { EditUserComponent } from '../edit-user/edit-user.component';
-import { BookUpdateService } from 'src/app/SERVICE/book-update.service';
-
+import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
+import { AddUserComponent } from '../add-user/add-user.component';
 
 
 export interface usersData {
@@ -35,7 +35,7 @@ export class UsersComponent {
 
 
 
-  constructor(private userService: UserService,private bookUpdateService: BookUpdateService,
+  constructor(private userService: UserService,private pageUpdateService: PageUpdateService,
     private dialog: MatDialog) { }
 
     ngOnInit() {
@@ -48,7 +48,7 @@ export class UsersComponent {
         }
       );
 
-      this.bookUpdateService.bookUpdated$.subscribe(() => {
+      this.pageUpdateService.pageUpdated$.subscribe(() => {
         this.refreshUsers();
       });
       
@@ -118,6 +118,20 @@ export class UsersComponent {
       });
     }
 
-    
+    openAddUser(): void {
+
+      const dialogRef = this.dialog.open(AddUserComponent, {
+        width: '500px',
+        height: '620px',
+        disableClose: false,
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The popup was closed');
+        if (result === 'updated') {
+          this.refreshUsers(); // Call the refreshBooks() method when the book is updated
+        }
+      });
+    }
 
 }
