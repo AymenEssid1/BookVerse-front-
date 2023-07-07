@@ -13,10 +13,10 @@
   <mat-card-content class="p-24">
     <mat-card-title>Books</mat-card-title>
     <div class="table-responsive m-t-16">
-      <table mat-table [dataSource]="books" matSort class="w-100">
+      <table mat-table [dataSource]="dataSource" matSort class="w-100">
         <!-- Position Column -->
         <ng-container matColumnDef="Book">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="f-w-600 mat-subtitle-1 f-s-14">
+          <th mat-header-cell *matHeaderCellDef  class="f-w-600 mat-subtitle-1 f-s-14">
             Book
           </th>
           <td mat-cell *matCellDef="let book">

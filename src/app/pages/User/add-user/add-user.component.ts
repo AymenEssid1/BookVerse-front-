@@ -59,17 +59,21 @@ export class AddUserComponent {
       const role = this.userForm.value.role;
 
       this.userService.addUser(role, addedUser).subscribe(
-        response => {
+        (response) => {
           // Handle successful response from the backend
           console.log('User added successfully:', response);
           this.openSnackBar('User added successfully!', 'Close');
           this.pageUpdateService.emitPageUpdated();
           this.userForm.reset();
         },
-        error => {
-          // Handle error response from the backend
-          console.error('Error adding user:', error);
-          this.openSnackBar('Failed to add user.', 'Close');
+        (error) => {
+          // Handle error response
+          console.error('Error creating user', error);
+          if (error.status === 409) {
+            // Book with the same name already exists
+            this.openSnackBar('Email used already', 'Close');
+          }
+          
         }
       );
     } else {

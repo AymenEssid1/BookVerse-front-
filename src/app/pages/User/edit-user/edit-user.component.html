@@ -28,10 +28,8 @@
 
     <div class="form-field">
       <label for="password">password</label>
-      <input type="text" id="password" formControlName="password">
-      <div *ngIf="userForm.controls['password'].errors && userForm.controls['password'].errors['required']" class="error-message flash-red">
-        Password is required.
-      </div>
+      <input type="text" id="password" formControlName="password" placeholder="leave empty to keep the old password">
+      
     </div>
 
     <div class="form-field">

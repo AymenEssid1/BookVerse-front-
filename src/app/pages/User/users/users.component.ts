@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { UserService } from 'src/app/SERVICE/UserService';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
@@ -7,6 +7,8 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 import { AddUserComponent } from '../add-user/add-user.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatTable } from '@angular/material/table';
 
 
 export interface usersData {
@@ -24,35 +26,44 @@ export interface usersData {
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent {
+export class UsersComponent  {
+  
+
+  @ViewChild(MatSort) sort: MatSort;
 
   users: usersData[];
-  displayedColumns: string[] = ['user', 'email',  'role', 'action'];
+  displayedColumns: string[] = ['user', 'email', 'role', 'action'];
+  dataSource: MatTableDataSource<usersData>;
   userId: number;
-  user:any;
+  user: any;
+  searchQuery: string;
+  searchQuerySubject: Subject<string> = new Subject<string>();
 
+  constructor(
+    private userService: UserService,
+    private pageUpdateService: PageUpdateService,
+    private dialog: MatDialog
+  ) {}
 
+  ngOnInit() {
+    this.userService.getUsers().subscribe(
+      (response) => {
+        this.users = response;
+        this.dataSource = new MatTableDataSource(this.users);
+    this.dataSource.sort = this.sort;
+      },
+      (error) => {
+        console.error('Error retrieving books:', error);
+      }
+    );
 
+    this.pageUpdateService.pageUpdated$.subscribe(() => {
+      this.refreshUsers();
+    });
+  }
 
+ 
 
-  constructor(private userService: UserService,private pageUpdateService: PageUpdateService,
-    private dialog: MatDialog) { }
-
-    ngOnInit() {
-      this.userService.getUsers().subscribe(
-        (response) => {
-          this.users = response;
-        },
-        (error) => {
-          console.error('Error retrieving books:', error);
-        }
-      );
-
-      this.pageUpdateService.pageUpdated$.subscribe(() => {
-        this.refreshUsers();
-      });
-      
-    }
 
     refreshUsers(query?: string) {
       this.userService.getUsers().subscribe(
@@ -134,4 +145,29 @@ export class UsersComponent {
       });
     }
 
+    onSearchQueryChanged(searchQuery: string) {
+      if (searchQuery.trim() === '') {
+        // If the search query is empty, reset the table to display all users
+        this.dataSource.data = this.users;
+        return;
+      }
+  
+      const query = searchQuery.toLowerCase().trim();
+  
+      // Filter users based on search query
+      const filteredUsers = this.users.filter(user => {
+        const { firstname, lastname, email, role } = user;
+  
+        // Check if the search query matches any of the user properties
+        return (
+          role.toLowerCase() === query ||
+          firstname.toLowerCase().startsWith(query) ||
+          lastname.toLowerCase().startsWith(query) ||
+          email.toLowerCase().startsWith(query)
+        );
+      });
+  
+      // Update the table data source with the filtered users
+      this.dataSource.data = filteredUsers;
+    }
 }

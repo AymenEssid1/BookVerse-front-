@@ -23,7 +23,7 @@ import { SidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HeaderComponent } from './layouts/full/header/header.component';
 import { BrandingComponent } from './layouts/full/sidebar/branding.component';
 import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
-import { FrontPageComponent } from './pages/front-page/front-page.component';
+import { FrontPageComponent } from './pages/Client/front-page/front-page.component';
 import { BooksComponent } from './pages/Books/books/books.component';
 import { EditBookComponent } from './pages/Books/edit-book/edit-book.component';
 
@@ -35,6 +35,8 @@ import { UsersComponent } from './pages/User/users/users.component';
 import { EditUserComponent } from './pages/User/edit-user/edit-user.component';
 import { AddUserComponent } from './pages/User/add-user/add-user.component';
 
+import { MatTableModule } from '@angular/material/table';
+import { ClientSidebarComponent } from './pages/Client/client-sidebar/client-sidebar.component';
 
 
 
@@ -48,6 +50,7 @@ import { AddUserComponent } from './pages/User/add-user/add-user.component';
     BrandingComponent,
     AppNavItemComponent,
     FrontPageComponent,
+    ClientSidebarComponent,
     BooksComponent,
     EditBookComponent,
     AddBookComponent,
@@ -65,6 +68,7 @@ import { AddUserComponent } from './pages/User/add-user/add-user.component';
     ReactiveFormsModule,
     MaterialModule,
     MatDialogModule,
+    MatTableModule,
     MatSortModule,
     TablerIconsModule.pick(TablerIcons),
   ],

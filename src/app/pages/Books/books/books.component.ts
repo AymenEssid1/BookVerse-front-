@@ -7,6 +7,7 @@ import { AddBookComponent } from '../add-book/add-book.component';
 import { MatSort } from '@angular/material/sort';
 import { Subject, Observable, fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 export interface booksData {
@@ -26,8 +27,9 @@ export interface booksData {
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit {
-  //@ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
   books: booksData[];
+  dataSource: MatTableDataSource<booksData>;
   booky: any;
   bookId: number;
   //imageUrl: string;
@@ -46,6 +48,8 @@ export class BooksComponent implements OnInit {
     this.bookService.getBooks().subscribe(
       (response) => {
         this.books = response;
+        this.dataSource = new MatTableDataSource(this.books);
+    this.dataSource.sort = this.sort;
       },
       (error) => {
         console.error('Error retrieving books:', error);
