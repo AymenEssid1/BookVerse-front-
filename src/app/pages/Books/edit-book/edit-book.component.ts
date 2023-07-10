@@ -115,11 +115,25 @@ export class EditBookComponent {
           this.pageUpdateService.emitPageUpdated();
         },
         (error) => {
-          console.error('Error updating book:', error);
-
+          // Handle error response
+          console.error('Error creating book', error);
+          if (error.status === 409) {
+            // Book with the same name already exists
+            this.openSnackBar('Book with the same name already exists', 'Close');
+          }
+        
         }
       );
     }
+  }
+
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000, // Duration in milliseconds
+      horizontalPosition: 'center', // Position horizontally
+      verticalPosition: 'top' // Position vertically
+    });
   }
 
 }
