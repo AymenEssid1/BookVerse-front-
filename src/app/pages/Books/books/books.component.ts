@@ -205,24 +205,18 @@ export class BooksComponent implements OnInit {
     }
   }
 
-  // Add the following method to handle search query changes
-  onSearchQueryChanged2(query: string) {
-    this.searchQuerySubject.next(query);
-  }
+ 
 
   onSearchQueryChanged(searchQuery: string) {
     if (searchQuery.trim() === '') {
-      // If the search query is empty, reset the table to display all users
       this.dataSource.data = this.books;
       return;
     }
 
     const query = searchQuery.toLowerCase().trim();
 
-    // Filter users based on search query
     const filteredBooks = this.books.filter((book) => {
-      // Filter logic goes here...
-      // Filter by price
+   
       if (query.startsWith('<')) {
         const price = parseFloat(query.substring(1).trim());
         console.log(price);
@@ -242,7 +236,6 @@ export class BooksComponent implements OnInit {
         return book.quantity >= 1 && book.quantity <= 25;
       }
 
-      // No specific filter prefix, match against all fields
       return (
         book.category.toLowerCase().includes(query) ||
         book.author.toLowerCase().includes(query) ||

@@ -4,13 +4,6 @@ import { BookService } from 'src/app/SERVICE/BookService';
 import { MatDialog } from '@angular/material/dialog';
 import { BookdetailComponent } from '../bookdetail/bookdetail.component';
 
-interface productcards {
-  id: number;
-  imgSrc: string;
-  title: string;
-  price: string;
-  rprice: string;
-}
 
 
 @Component({
@@ -23,12 +16,19 @@ export class FrontPageComponent {
   headerComponent: HeaderComponent;
   books: any[];
   bookId: number;
+  query:string;
+
+  sortedBooks: any[];
+  sortingOption: string;
+  isSortOrderAscending: boolean = true; // Property to track the sort order
+
   constructor(private bookService: BookService, private dialog: MatDialog,) { }
   ngOnInit() {
     this.bookService.getBooks().subscribe(
       (response) => {
         this.books = response;
-        console.log(response);
+        this.sortBooks('newest'); 
+        console.log(this.sortedBooks);
       },
       (error) => {
         console.error('Error retrieving books:', error);
@@ -36,6 +36,80 @@ export class FrontPageComponent {
       }
     );
     
+  }
+  applySearch() {
+    if (this.query) {
+      const searchQuery = this.query.toLowerCase();
+      this.bookService.getBooks().subscribe(
+        (response) => {
+          this.books = response.filter((book) => {
+            return (
+              book.category.toLowerCase().includes(searchQuery) ||
+              book.author.toLowerCase().includes(searchQuery) ||
+              book.name.toLowerCase().includes(searchQuery)
+            );
+          });
+          // Sort the filtered books based on the current sorting option
+          this.sortBooks(this.sortingOption);
+        },
+        (error) => {
+          console.error('Error retrieving books:', error);
+        }
+      );
+    } else {
+      // If the search query is empty, show all books
+      this.bookService.getBooks().subscribe(
+        (response) => {
+          this.books = response;
+          // Sort all books based on the current sorting option
+          this.sortBooks(this.sortingOption);
+        },
+        (error) => {
+          console.error('Error retrieving books:', error);
+        }
+      );
+    }
+  }
+  
+
+  refreshBooks(query?: string) {
+    this.bookService.getBooks().subscribe(
+      (response) => {
+        this.books = response;
+        
+      
+      },
+      (error) => {
+        console.error('Error retrieving books:', error);
+      }
+    );
+  }
+  
+  sortBooks(option: string) {
+    this.sortingOption = option;
+    switch (option) {
+      case 'price':
+        this.sortedBooks = this.books.sort((a, b) => a.price - b.price);
+        break;
+      case 'newest':
+        this.sortedBooks = this.books.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        break;
+      case 'review':
+        this.sortedBooks = this.books.sort((a, b) => b.averageReview - a.averageReview);
+        break;
+      case 'highestPrice':
+        this.sortedBooks = this.books.sort((a, b) => b.price - a.price);
+        break;
+      case 'oldest':
+        this.sortedBooks = this.books.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+        break;
+      case 'lowestReview':
+        this.sortedBooks = this.books.sort((a, b) => a.averageReview - b.averageReview);
+        break;
+      default:
+        this.sortedBooks = this.books;
+        break;
+    }
   }
   
   getStars(averageReview: number): number[] {
