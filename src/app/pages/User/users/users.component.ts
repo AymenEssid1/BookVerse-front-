@@ -62,10 +62,9 @@ export class UsersComponent  {
     });
   }
 
- 
 
 
-    refreshUsers(query?: string) {
+    refreshUsers() {
       this.userService.getUsers().subscribe(
         (response) => {
           this.users = response;
@@ -76,6 +75,9 @@ export class UsersComponent  {
         }
       );
     }
+
+
+    
     getImageUrl(role: string): string {
       if (role === 'ADMIN') {
         return 'assets/images/profile/user-1.jpg'; 

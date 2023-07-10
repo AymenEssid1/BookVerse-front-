@@ -136,6 +136,8 @@ export class BooksComponent implements OnInit {
     this.bookService.getBooks().subscribe(
       (response) => {
         this.books = response;
+        this.dataSource = new MatTableDataSource(this.books);
+        this.dataSource.sort = this.sort;
         if (query) {
           this.applySearch(query);
         }
@@ -204,8 +206,52 @@ export class BooksComponent implements OnInit {
   }
 
   // Add the following method to handle search query changes
-  onSearchQueryChanged(query: string) {
+  onSearchQueryChanged2(query: string) {
     this.searchQuerySubject.next(query);
+  }
+
+  onSearchQueryChanged(searchQuery: string) {
+    if (searchQuery.trim() === '') {
+      // If the search query is empty, reset the table to display all users
+      this.dataSource.data = this.books;
+      return;
+    }
+
+    const query = searchQuery.toLowerCase().trim();
+
+    // Filter users based on search query
+    const filteredBooks = this.books.filter((book) => {
+      // Filter logic goes here...
+      // Filter by price
+      if (query.startsWith('<')) {
+        const price = parseFloat(query.substring(1).trim());
+        console.log(price);
+        return book.price < price;
+      }
+
+      // Filter by stock
+      if (query === 'out') {
+        return book.quantity === 0;
+      }
+
+      if (query === 'stock') {
+        return book.quantity >= 26;
+      }
+
+      if (query === 'low') {
+        return book.quantity >= 1 && book.quantity <= 25;
+      }
+
+      // No specific filter prefix, match against all fields
+      return (
+        book.category.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query) ||
+        book.name.toLowerCase().includes(query)
+      );
+    });
+
+    // Update the table data source with the filtered users
+    this.dataSource.data = filteredBooks;
   }
 
 }

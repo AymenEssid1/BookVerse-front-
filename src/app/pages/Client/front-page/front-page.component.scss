@@ -1,38 +1,154 @@
 .book-image {
-    max-width: 100px; /* Adjust this value to your desired width */
-    max-height: 100px; /* Adjust this value to your desired height */
+  max-width: 100px;
+  /* Adjust this value to your desired width */
+  max-height: 100px;
+  /* Adjust this value to your desired height */
+}
+
+.productcard {
+  overflow: visible !important;
+}
+
+.rating-stars {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.star-icon {
+  font-size: 16px;
+}
+
+.star-icon::before {
+  content: "\2605";
+  /* Unicode character for star symbol */
+}
+
+.star-icon.filled {
+  color: #f7ce47;
+  /* Filled star color */
+}
+
+.star-icon.half-filled {
+  position: relative;
+  color: #f7ce47;
+  /* Half-filled star color */
+  clip-path: inset(0 calc(100% - 57% - 1px) 0 0);
+  /* Clip the top half of the star */
+}
+
+.star-icon.empty {
+  color: #000000;
+  /* Empty star color */
+}
+
+.sidebar {
+
+  width: 250px;
+  background-color: #ececec;
+  position: fixed;
+  /* Set the position to fixed */
+  top: 0;
+  /* Align the sidebar to the top of the page */
+  left: 0;
+  /* Align the sidebar to the left side of the page */
+  bottom: 0;
+  /* Extend the sidebar to the bottom of the page */
+}
+
+.content {
+  margin-left: 250px;
+  /* Add a left margin equal to the width of the sidebar */
+  overflow: hidden;
+  padding-left: 20px;
+  /* Add a padding on the left side */
+  padding-top: 20px;
+  /* Add a padding on the top */
+  padding-bottom: 20px;
+  /* Add a padding on the bottom */
+  padding-right: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-sm-6 {
+  width: 50%;
+  /* Adjust the column width as per your requirements */
+}
+
+@media (max-width: 768px) {
+
+  /* Apply responsive styles for smaller screens */
+  .sidebar {
+    width: 100%;
+    position: static;
+    /* Reset the position to static for smaller screens */
+    margin-bottom: 20px;
+    /* Add some spacing at the bottom of the sidebar */
   }
 
-  .productcard {
-    overflow: visible !important;
+  .content {
+    margin-left: 0;
   }
-  
-  .rating-stars {
-    display: inline-flex;
-    gap: 2px;
-    align-items: center;
+
+  .col-sm-6 {
+    width: 100%;
   }
-  
-  .star-icon {
-    font-size: 16px;
-  }
-  
-  .star-icon::before {
-    content: "\2605"; /* Unicode character for star symbol */
-  }
-  
-  .star-icon.filled {
-    color: #f7ce47; /* Filled star color */
-  }
-  
-  .star-icon.half-filled {
-    position: relative;
-    color: #f7ce47; /* Half-filled star color */
-    clip-path: inset(0 calc(100% - 57% - 1px) 0 0); /* Clip the top half of the star */
-  }
-  
-  .star-icon.empty {
-    color: #000000; /* Empty star color */
-  }
-  
-  
+}
+
+
+.head {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  flex: 1;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #555;
+}
+
+.book-card {
+  background-color: #5d87ff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.book-card h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+}

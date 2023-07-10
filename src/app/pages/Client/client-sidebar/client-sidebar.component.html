@@ -1,1 +1,59 @@
-<p>client-sidebar works!</p>
+<app-branding></app-branding>
+
+<div class="sidebar">
+  <div class="filter-container">
+    <h4>FILTERS</h4>
+    <br>
+    <br>
+    <br>
+    <div class="filter-category">
+      <h6>Category:</h6>
+      <select>
+        <option selected disabled>Select category</option>
+        <option>Category 1</option>
+        <option>Category 2</option>
+        <option>Category 3</option>
+      </select>
+    </div>
+
+    <div class="filter-price">
+      <h6>Price:</h6>
+      <input type="range" min="0" max="100" value="50">
+      <span>$<span id="price-value">50</span></span>
+    </div>
+
+    <div class="filter-reviews">
+      <h6>Reviews:</h6>
+      <div class="stars">
+        <span class="star">&#9734;</span>
+        <span class="star">&#9734;</span>
+        <span class="star">&#9734;</span>
+        <span class="star">&#9734;</span>
+        <span class="star">&#9734;</span>
+      </div>
+    </div>
+    
+    <div class="filter-author">
+      <h6>Author:</h6>
+      <label><input type="radio" name="author" value="placeholder1"> Placeholder 1</label>
+      <label><input type="radio" name="author" value="placeholder2"> Placeholder 2</label>
+      <label><input type="radio" name="author" value="placeholder3"> Placeholder 3</label>
+    </div>
+  </div>
+</div>
+
+
+<!--
+    **SIDE BAR FILTERS**
+<br>
+<br>
+<br>
+category : radio button
+<br>
+price : slider +value
+<br>
+reviews : stars
+<br>
+author : radio button (with a max of 5 displayed and a plus button display more)
+i want the thing under brandig to be in a container with rounded sides
+ -->

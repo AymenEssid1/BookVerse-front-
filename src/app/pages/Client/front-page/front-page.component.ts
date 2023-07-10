@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from 'src/app/layouts/full/header/header.component';
 import { BookService } from 'src/app/SERVICE/BookService';
+import { MatDialog } from '@angular/material/dialog';
+import { BookdetailComponent } from '../bookdetail/bookdetail.component';
+
 interface productcards {
   id: number;
   imgSrc: string;
@@ -20,7 +23,7 @@ export class FrontPageComponent {
   headerComponent: HeaderComponent;
   books: any[];
   bookId: number;
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private dialog: MatDialog,) { }
   ngOnInit() {
     this.bookService.getBooks().subscribe(
       (response) => {
@@ -62,7 +65,20 @@ export class FrontPageComponent {
   }
   
   
-  
+  openEdit(bookId: number): void {
+    this.bookId = bookId;
+    const dialogRef = this.dialog.open(BookdetailComponent, {
+      width: '1000px',
+      height: '620px',
+      disableClose: false,
+      data: { bookId: this.bookId },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The popup was closed');
+      
+    });
+  }
   
   
   
