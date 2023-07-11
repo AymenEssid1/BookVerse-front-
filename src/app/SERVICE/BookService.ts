@@ -46,6 +46,11 @@ export class BookService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<any>(`${this.baseUrl}/categories`, { headers });
   }
+  getAuthors(): Observable<any[]> {
+    const token = localStorage.getItem('jwtToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any>(`${this.baseUrl}/getAllAuthors`, { headers });
+  }
 
   updateBookImage(bookId: number, file: File): Observable<any> {
     const token = localStorage.getItem('jwtToken');

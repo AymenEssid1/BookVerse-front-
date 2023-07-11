@@ -24,17 +24,51 @@
   margin-bottom: 20px;
 }
 
-.star {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    font-size: 16px;
-    color: #ccc;
-    cursor: pointer;
-  }
 
-  .star.filled {
-    color: gold;
-  }
 
-  
+div.stars {
+  width: 200px;
+  display: inline-block;
+  direction: rtl;
+  text-align: left;
+}
+
+.mt-200 {
+  margin-top: 10px;
+}
+
+input.star {
+  display: none;
+}
+
+label.star {
+  padding: 2px;
+  font-size: 17px;
+  color: #268de0;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+ // text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before {
+  color: rgb(0, 0, 0);
+}
+
+label.star:hover {
+  transform: rotate(-15deg) scale(1.3);
+}
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+

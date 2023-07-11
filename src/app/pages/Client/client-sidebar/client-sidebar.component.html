@@ -4,41 +4,65 @@
   <div class="filter-container">
     <h4>FILTERS</h4>
     <br>
+    <button (click)="applyFilter()">Apply</button>
+    <button (click)="resetFilters()">Reset Filters</button>
     <br>
     <br>
     <div class="filter-category">
       <h6>Category:</h6>
-      <select>
+      <select id="category" [(ngModel)]="category" name="category">
         <option selected disabled>Select category</option>
-        <option>Category 1</option>
-        <option>Category 2</option>
-        <option>Category 3</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+
+    <div class="filter-author">
+      <h6>Author:</h6>
+      <select id="category" [(ngModel)]="author" name="author">
+        <option selected disabled>Select author</option>
+        <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
       </select>
     </div>
 
     <div class="filter-price">
       <h6>Price:</h6>
-      <input type="range" min="0" max="100" value="50">
-      <span>$<span id="price-value">50</span></span>
+      <input type="number" min="0" max="500" [(ngModel)]="selectedPriceRange">
+      <input type="range" min="0" max="500" [(ngModel)]="selectedPriceRange">
+      <span><span id="price-value">{{ selectedPriceRange }}</span></span>
     </div>
 
-    <div class="filter-reviews">
-      <h6>Reviews:</h6>
+
+
+
+
+
+    <div>
+      <h6>Review:</h6>
       <div class="stars">
-        <span class="star">&#9734;</span>
-        <span class="star">&#9734;</span>
-        <span class="star">&#9734;</span>
-        <span class="star">&#9734;</span>
-        <span class="star">&#9734;</span>
+        <input class="star star-5" id="star-5" type="radio" name="star" [(ngModel)]="selectedStar" value="5" />
+        <label class="star star-5" for="star-5"></label>
+        <input class="star star-4" id="star-4" type="radio" name="star" [(ngModel)]="selectedStar" value="4" />
+        <label class="star star-4" for="star-4"></label>
+        <input class="star star-3" id="star-3" type="radio" name="star" [(ngModel)]="selectedStar" value="3" />
+        <label class="star star-3" for="star-3"></label>
+        <input class="star star-2" id="star-2" type="radio" name="star" [(ngModel)]="selectedStar" value="2" />
+        <label class="star star-2" for="star-2"></label>
+        <input class="star star-1" id="star-1" type="radio" name="star" [(ngModel)]="selectedStar" value="1" />
+        <label class="star star-1" for="star-1"></label>
       </div>
     </div>
     
-    <div class="filter-author">
-      <h6>Author:</h6>
-      <label><input type="radio" name="author" value="placeholder1"> Placeholder 1</label>
-      <label><input type="radio" name="author" value="placeholder2"> Placeholder 2</label>
-      <label><input type="radio" name="author" value="placeholder3"> Placeholder 3</label>
-    </div>
+
+
+<br>
+
+
+    
+
+
+
+
+
   </div>
 </div>
 
