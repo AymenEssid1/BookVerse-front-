@@ -8,15 +8,16 @@ import { BookService } from 'src/app/SERVICE/BookService';
   styleUrls: ['./client-sidebar.component.scss']
 })
 export class ClientSidebarComponent {
-  selectedPriceRange: number 
+  
   @Output() filterApplied: EventEmitter<{ category: string,author: string, priceRange: number ,rating:number }> = new EventEmitter<{ category: string,author:string, priceRange: number ,rating: number }>();
   @Output() filtersReset: EventEmitter<void> = new EventEmitter<void>();
   categories:string[];
-  category:string ;//this is the one i select 
   authors:string[];
-  author:string;
-
-  selectedStar: number;
+  
+  category:any ;//this is the one i select   
+  author:any;
+  selectedPriceRange: any
+  selectedStar: any;
 
   constructor(private bookService: BookService){}
   ngOnInit() {
@@ -58,9 +59,10 @@ export class ClientSidebarComponent {
   }
 
   resetFilters() {
-    this.category = ''; // Reset the selected category
-    this.author = '';
-    this.selectedPriceRange = 0; // Reset the selected price range
+    this.category = undefined; 
+    this.author = undefined;
+    this.selectedPriceRange = undefined; 
+    this.selectedStar=undefined;
     this.filtersReset.emit();
   }
   

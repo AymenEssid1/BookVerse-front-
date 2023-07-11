@@ -3,7 +3,6 @@ import { HeaderComponent } from 'src/app/layouts/full/header/header.component';
 import { BookService } from 'src/app/SERVICE/BookService';
 import { MatDialog } from '@angular/material/dialog';
 import { BookdetailComponent } from '../bookdetail/bookdetail.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 
@@ -57,6 +56,7 @@ export class FrontPageComponent {
   resetFilters() {
     this.books = this.OGbooks
     this.sortBooks(this.sortingOption);
+    console.log(this.sortedBooks);
   }
   
   
