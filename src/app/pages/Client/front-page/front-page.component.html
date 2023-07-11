@@ -27,6 +27,12 @@
       </mat-card-header>
       <mat-card-content class="b-t-1" style="padding-top: 15px;">
         <mat-chip-listbox aria-label="Sort selection">
+          <mat-chip-option class="f-s-14" (click)="sortBooks('newest')"  [ngClass]="{'selected': sortingOption === 'newest', 'desc': !isSortOrderAscending}">
+            Newest
+          </mat-chip-option>
+          <mat-chip-option class="f-s-14" (click)="sortBooks('oldest')" color="warn" [ngClass]="{'selected': sortingOption === 'oldest', 'desc': !isSortOrderAscending}">
+            Oldest
+          </mat-chip-option>
           
           <mat-chip-option class="f-s-14" (click)="sortBooks('price')" [ngClass]="{'selected': sortingOption === 'price', 'desc': !isSortOrderAscending}">
             Lowest Price
@@ -35,12 +41,7 @@
           <mat-chip-option class="f-s-14" (click)="sortBooks('highestPrice')" color="warn" [ngClass]="{'selected': sortingOption === 'highestPrice', 'desc': !isSortOrderAscending}">
             Highest Price
           </mat-chip-option>
-          <mat-chip-option class="f-s-14" (click)="sortBooks('newest')"  [ngClass]="{'selected': sortingOption === 'newest', 'desc': !isSortOrderAscending}">
-            Newest
-          </mat-chip-option>
-          <mat-chip-option class="f-s-14" (click)="sortBooks('oldest')" color="warn" [ngClass]="{'selected': sortingOption === 'oldest', 'desc': !isSortOrderAscending}">
-            Oldest
-          </mat-chip-option>
+         
           <mat-chip-option class="f-s-14" (click)="sortBooks('review')" [ngClass]="{'selected': sortingOption === 'review', 'desc': !isSortOrderAscending}">
             Highest Review
           </mat-chip-option>

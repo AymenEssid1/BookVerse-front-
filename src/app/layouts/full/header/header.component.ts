@@ -32,7 +32,7 @@ export class HeaderComponent {
     const token = localStorage.getItem('jwtToken');
     if (token) {
       this.decodeJwtToken(token).then((decodedToken: any) => {
-        this.userEmail = decodedToken.sub;
+        this.userEmail = decodedToken.sub; //gotta fix this 
         console.log('Decoded JWT token:', decodedToken);
       }).catch((error: any) => {
         console.error('Error decoding JWT token:', error);

@@ -3,7 +3,7 @@
 .filter-container {
     background-color: #ffffff;
     border-radius: 10px;
-    padding: 20px;
+    padding: 5px;
     width:90%; /* Adjust the width as per your desired size */
     margin: 0 auto; /* Add this line to horizontally center the container */
   }
@@ -12,17 +12,23 @@
     width: 250px;
     background-color: rgba(215, 242, 255, 0);
     position: fixed;
-    
-    overflow-y: auto; /* Add this line to enable vertical scrolling if needed */
     border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 0 5px #5d87ff;
+    transition: box-shadow 0.5s;
   }
   
-.filter-category,
-.filter-price,
-.filter-reviews,
-.filter-author {
-  margin-bottom: 20px;
-}
+  .sidebar:hover {
+    box-shadow: 
+      0 0 0 20px rgba(0, 123, 255, 0.5),
+     
+     
+  }
+  
+  
+  
+  
+  
 
 
 
@@ -56,11 +62,11 @@ input.star:checked ~ label.star:before {
 
 input.star-5:checked ~ label.star:before {
   color: #FE7;
- // text-shadow: 0 0 20px #952;
+  text-shadow: 0 0 20px #fffc5d;
 }
 
 input.star-1:checked ~ label.star:before {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 0, 0);
 }
 
 label.star:hover {
@@ -71,4 +77,82 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
+
+
+
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+h6 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.custom-btn {
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+
+
+/* 2 */
+.btn-2 {
+  background: #5d87ff;
+  background: linear-gradient(0deg, rgb(93, 135, 255) 0%, rgba(50, 90, 255) 100%);
+  border: none;
+  
+}
+.btn-2:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-2:hover {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
 

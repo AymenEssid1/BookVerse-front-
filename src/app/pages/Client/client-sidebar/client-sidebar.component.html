@@ -1,15 +1,19 @@
+
 <app-branding></app-branding>
+<br>
+<br>
+<br>
 
 <div class="sidebar">
   <div class="filter-container">
-    <h4>FILTERS</h4>
+    <h4 style="font-family: Plus Jakarta Sans;">FILTERS</h4>
     <br>
-    <button (click)="applyFilter()">Apply</button>
-    <button (click)="resetFilters()">Reset Filters</button>
+    <button class="custom-btn btn-2" (click)="applyFilter()">Apply</button>
+    <button class="custom-btn btn-2 " (click)="resetFilters()">Reset </button>
     <br>
     <br>
     <div class="filter-category">
-      <h6>Category:</h6>
+      <h6 style="font-family: Plus Jakarta Sans;">Category:</h6>
       <select id="category" [(ngModel)]="category" name="category">
         <option selected disabled>Select category</option>
         <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
@@ -17,27 +21,22 @@
     </div>
 
     <div class="filter-author">
-      <h6>Author:</h6>
-      <select id="category" [(ngModel)]="author" name="author">
+      <h6 style="font-family: Plus Jakarta Sans;">Author:</h6>
+      <select id="author" [(ngModel)]="author" name="author">
         <option selected disabled>Select author</option>
         <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
       </select>
     </div>
 
     <div class="filter-price">
-      <h6>Price:</h6>
+      <h6 style="font-family: Plus Jakarta Sans;">Price:</h6>
       <input type="number" min="0" max="500" [(ngModel)]="selectedPriceRange">
       <input type="range" min="0" max="500" [(ngModel)]="selectedPriceRange">
-      <span><span id="price-value">{{ selectedPriceRange }}</span></span>
+      <span></span>
     </div>
 
-
-
-
-
-
-    <div>
-      <h6>Review:</h6>
+    <div class="filter-review">
+      <h6 style="font-family: Plus Jakarta Sans;">Review:</h6>
       <div class="stars">
         <input class="star star-5" id="star-5" type="radio" name="star" [(ngModel)]="selectedStar" value="5" />
         <label class="star star-5" for="star-5"></label>
@@ -51,33 +50,5 @@
         <label class="star star-1" for="star-1"></label>
       </div>
     </div>
-    
-
-
-<br>
-
-
-    
-
-
-
-
-
   </div>
 </div>
-
-
-<!--
-    **SIDE BAR FILTERS**
-<br>
-<br>
-<br>
-category : radio button
-<br>
-price : slider +value
-<br>
-reviews : stars
-<br>
-author : radio button (with a max of 5 displayed and a plus button display more)
-i want the thing under brandig to be in a container with rounded sides
- -->
