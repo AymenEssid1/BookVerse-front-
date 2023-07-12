@@ -3,6 +3,8 @@ import { HeaderComponent } from 'src/app/layouts/full/header/header.component';
 import { BookService } from 'src/app/SERVICE/BookService';
 import { MatDialog } from '@angular/material/dialog';
 import { BookdetailComponent } from '../bookdetail/bookdetail.component';
+import { CartService } from 'src/app/SERVICE/CartService';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 
@@ -22,7 +24,11 @@ export class FrontPageComponent {
   sortingOption: string;
   isSortOrderAscending: boolean = true; // Property to track the sort order
 
-  constructor(private bookService: BookService, private dialog: MatDialog,) { }
+
+  cart:any;
+  userID:number;
+
+  constructor(private bookService: BookService, private dialog: MatDialog) { }
   ngOnInit() {
     this.bookService.getBooks().subscribe(
       (response) => {
@@ -36,8 +42,13 @@ export class FrontPageComponent {
         //console.log(token);
       }
     );
+    
+    
+    
 
   }
+
+  
 
  
   filter(category: string, author: string, priceRange: number, rating: number) {
@@ -185,6 +196,8 @@ export class FrontPageComponent {
     });
   }
 
-
+  
+  
+  
 
 }

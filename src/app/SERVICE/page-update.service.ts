@@ -14,4 +14,3 @@ export class PageUpdateService {
   }
 }
 
-//to future me I use this to update the parent component after i close the child component

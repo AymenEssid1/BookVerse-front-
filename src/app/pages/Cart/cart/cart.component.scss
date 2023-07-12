@@ -1,0 +1,32 @@
+.card-container {
+    position: relative;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .card-container.swiped {
+    transform: translateX(-100%);
+  }
+  
+  .card {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card-body {
+    overflow: hidden;
+  }
+  
+  .row {
+    position: relative;
+    left: 0;
+    transition: left 0.3s ease-out;
+  }
+  
+  .card:hover .row {
+    left: -10px;
+  }
+  
+  .card.swiped .row {
+    left: -100px;
+  }
+  

@@ -46,6 +46,7 @@ export class EditBookComponent {
         console.error('Error retrieving book:', error);
       }
     );
+    console.log(this.data.bookId);
   }
 
 

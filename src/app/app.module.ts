@@ -38,6 +38,7 @@ import { AddUserComponent } from './pages/User/add-user/add-user.component';
 import { MatTableModule } from '@angular/material/table';
 import { ClientSidebarComponent } from './pages/Client/client-sidebar/client-sidebar.component';
 import { BookdetailComponent } from './pages/Client/bookdetail/bookdetail.component';
+import { CartComponent } from './pages/Cart/cart/cart.component';
 
 
 
@@ -58,6 +59,7 @@ import { BookdetailComponent } from './pages/Client/bookdetail/bookdetail.compon
     UsersComponent,
     EditUserComponent,
     AddUserComponent,
+    CartComponent,
     BookdetailComponent
   ],
   imports: [

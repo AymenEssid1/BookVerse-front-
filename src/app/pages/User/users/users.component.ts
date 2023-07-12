@@ -68,7 +68,7 @@ export class UsersComponent  {
       this.userService.getUsers().subscribe(
         (response) => {
           this.users = response;
-          
+          this.dataSource = new MatTableDataSource(this.users);
         },
         (error) => {
           console.error('Error retrieving books:', error);
@@ -93,7 +93,7 @@ export class UsersComponent  {
     deleteUser(userId: number) {
       this.userService.deleteUser(userId).subscribe(
         () => {
-          this.fetchUsers();
+           this.refreshUsers();
         },
         (error) => {
           console.log('Error deleting user:', error);

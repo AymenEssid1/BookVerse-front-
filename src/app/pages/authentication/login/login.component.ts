@@ -29,7 +29,7 @@ login() {
   axios.post(url, credentials)
     .then((response: any) => {
       const token = response.data.access_token;
-
+      console.log(token);
       const jwtHelper = new JwtHelperService();
       const decodedToken = jwtHelper.decodeToken(token);
       const role = decodedToken.role; // Extract the role from the decoded token
