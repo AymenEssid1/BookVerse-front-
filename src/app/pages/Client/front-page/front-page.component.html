@@ -1,23 +1,47 @@
-<div class="sidebar">
-  <app-client-sidebar (filterApplied)="filter($event.category,$event.author, $event.priceRange,$event.rating)" (filtersReset)="resetFilters()"></app-client-sidebar>
-</div>
 
-<div class="content">
+
+<div class="bigHeader">
+  
   <div class="head">
+    <div style="width: 20%;"><app-branding></app-branding></div>
     <div class="search-bar">
       <input type="text" class="form-control" [(ngModel)]="query" placeholder="Search" (keyup.enter)="applySearch()" />
       <button type="button" (click)="applySearch()">Search</button>
     </div>
-    
-    
-    
+
+
     <app-header></app-header>
   </div>
+</div>
+
+<div class="bodyy">
+
+<div class="sidebar">
   
+  <app-client-sidebar (filterApplied)="filter($event.category,$event.author, $event.priceRange,$event.rating)"
+    (filtersReset)="resetFilters()"></app-client-sidebar>
+</div>
+
+<div class="content">
+  
+
   <div class="book-card">
     <h2>BOOKS</h2>
-  </div>
   
+    
+
+  </div>
+
+ 
+
+
+<!-- TODOOOOOOOOOOOOOOOOOOOOO
+   <button (click)="openIframe('https://sandbox.paymee.tn/gateway/5029729a05e22de54bff0459edcc7fa4')">Open iFrame</button>
+
+  <iframe #iframe [src]="iframeUrl" width="400" height="600"></iframe>
+
+-->
+
   <div style="width: max-fill;">
     <mat-card class="b-1 shadow-none">
       <mat-card-header style="padding-bottom: 20px;">
@@ -27,46 +51,53 @@
       </mat-card-header>
       <mat-card-content class="b-t-1" style="padding-top: 15px;">
         <mat-chip-listbox aria-label="Sort selection">
-          <mat-chip-option class="f-s-14" (click)="sortBooks('newest')"  [ngClass]="{'selected': sortingOption === 'newest', 'desc': !isSortOrderAscending}">
+          <mat-chip-option class="f-s-14" (click)="sortBooks('newest')"
+            [ngClass]="{'selected': sortingOption === 'newest', 'desc': !isSortOrderAscending}">
             Newest
           </mat-chip-option>
-          <mat-chip-option class="f-s-14" (click)="sortBooks('oldest')" color="warn" [ngClass]="{'selected': sortingOption === 'oldest', 'desc': !isSortOrderAscending}">
+          <mat-chip-option class="f-s-14" (click)="sortBooks('oldest')" color="warn"
+            [ngClass]="{'selected': sortingOption === 'oldest', 'desc': !isSortOrderAscending}">
             Oldest
           </mat-chip-option>
-          
-          <mat-chip-option class="f-s-14" (click)="sortBooks('price')" [ngClass]="{'selected': sortingOption === 'price', 'desc': !isSortOrderAscending}">
+
+          <mat-chip-option class="f-s-14" (click)="sortBooks('price')"
+            [ngClass]="{'selected': sortingOption === 'price', 'desc': !isSortOrderAscending}">
             Lowest Price
           </mat-chip-option>
-          
-          <mat-chip-option class="f-s-14" (click)="sortBooks('highestPrice')" color="warn" [ngClass]="{'selected': sortingOption === 'highestPrice', 'desc': !isSortOrderAscending}">
+
+          <mat-chip-option class="f-s-14" (click)="sortBooks('highestPrice')" color="warn"
+            [ngClass]="{'selected': sortingOption === 'highestPrice', 'desc': !isSortOrderAscending}">
             Highest Price
           </mat-chip-option>
-         
-          <mat-chip-option class="f-s-14" (click)="sortBooks('review')" [ngClass]="{'selected': sortingOption === 'review', 'desc': !isSortOrderAscending}">
+
+          <mat-chip-option class="f-s-14" (click)="sortBooks('review')"
+            [ngClass]="{'selected': sortingOption === 'review', 'desc': !isSortOrderAscending}">
             Highest Review
           </mat-chip-option>
-          <mat-chip-option class="f-s-14" (click)="sortBooks('lowestReview')" color="warn" [ngClass]="{'selected': sortingOption === 'lowestReview', 'desc': !isSortOrderAscending}">
+          <mat-chip-option class="f-s-14" (click)="sortBooks('lowestReview')" color="warn"
+            [ngClass]="{'selected': sortingOption === 'lowestReview', 'desc': !isSortOrderAscending}">
             Lowest Review
           </mat-chip-option>
         </mat-chip-listbox>
       </mat-card-content>
     </mat-card>
   </div>
-  
-  
+
+
   <div class="no-books-message" *ngIf="!sortedBooks ">
     No books found.
   </div>
 
   <div class="row">
     <div class="col-6 col-md-4 col-lg-3" *ngFor="let book of sortedBooks">
-      
+
       <mat-card class="cardWithShadow productcard overflow-hidden">
         <a (click)="openEdit(book.id)">
           <img class="book-image" [src]="'http://localhost:8080/api/v1/book/image/' + book.id" />
         </a>
         <mat-card-content class="p-b-24 p-t-12 position-relative">
-          <button mat-mini-fab color="primary" class="icon-30 cart-btn" matTooltip="Add to Cart">
+          <button mat-mini-fab color="primary" class="icon-30 cart-btn" matTooltip="Add to Cart"
+            (click)="addToCart(book.id)">
             <i-tabler name="basket" class="icon-16"></i-tabler>
           </button>
           <mat-card-title class="mat-headline-2 f-s-16 m-b-4">
@@ -75,23 +106,19 @@
           </mat-card-title>
           <div class="d-flex align-items-center justify-content-between">
             <div>
-              
+
               <h6 class="mat-body-2 f-w-600">{{ book.price }} TND</h6>
             </div>
             <div class="rating-stars">
-             <ng-container>
-              {{book.averageReview}}⭐
+              <ng-container>
+                {{book.averageReview}}⭐
               </ng-container>
             </div>
           </div>
         </mat-card-content>
       </mat-card>
-      
+
     </div>
   </div>
 </div>
-
-
-
-
-
+</div>

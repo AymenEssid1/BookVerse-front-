@@ -8,6 +8,8 @@ import { MatSort } from '@angular/material/sort';
 import { Subject, Observable, fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { CartService } from 'src/app/SERVICE/CartService';
 
 
 export interface booksData {
@@ -40,7 +42,8 @@ export class BooksComponent implements OnInit {
 
   constructor(private bookService: BookService,
     private dialog: MatDialog,
-    private pageUpdateService: PageUpdateService) { }
+    private pageUpdateService: PageUpdateService,
+    private cartService : CartService) { }
   
 
 
@@ -70,6 +73,7 @@ export class BooksComponent implements OnInit {
       
   }
 
+  
 
   ///////////////****delete *////////////////////////////////
   deleteBook(bookId: number) {

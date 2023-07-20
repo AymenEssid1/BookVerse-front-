@@ -6,6 +6,7 @@ import { FrontPageComponent } from './pages/Client/front-page/front-page.compone
 import { BooksComponent } from './pages/Books/books/books.component';
 import { UsersComponent } from './pages/User/users/users.component';
 import { AuthGuard } from './SERVICE/auth.guard';
+import { OrderComponent } from './pages/Client/order/order.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,8 @@ const routes: Routes = [
   },
   //////////////////////////////////////////
   { path: 'front-page', component: FrontPageComponent },
+  { path: 'order', component: OrderComponent },
+
   ///////////////////////////////////////////////
   {
     path: '',

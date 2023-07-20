@@ -44,14 +44,20 @@
   color: #000000;
   /* Empty star color */
 }
+.bigHeader{
+  height: 100px;
+
+
+}
 
 .sidebar {
-
+  margin-top: 80px;
+  padding-top: 20px;
   width: 250px;
   background-color: #ffffff;
   position: fixed;
   /* Set the position to fixed */
-  top: 0;
+  top: 50PX;
   /* Align the sidebar to the top of the page */
   left: 25px;
   /* Align the sidebar to the left side of the page */
@@ -62,14 +68,9 @@
 .content {
   margin-left: 300px;
   /* Add a left margin equal to the width of the sidebar */
-  overflow: hidden;
-  padding-left: 20px;
-  /* Add a padding on the left side */
-  padding-top: 20px;
-  /* Add a padding on the top */
-  padding-bottom: 20px;
-  /* Add a padding on the bottom */
-  padding-right: 20px;
+  padding: 20px; /* Shorter way to add padding on all sides */
+  overflow-y: auto; /* Make the content scrollable vertically */
+  height: calc(100vh - 100px); /* Set a fixed height for the content area (viewport height - height of .bigHeader) */
 }
 
 .row {
@@ -104,6 +105,10 @@
 
 
 .head {
+  display: flex;
+  align-items: center;
+}
+.body {
   display: flex;
   align-items: center;
 }
@@ -142,7 +147,7 @@
 }
 
 .book-card {
-  background-color: #5d87ff;
+  background-color: hsl(224, 100%, 68%);
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -164,4 +169,11 @@
   margin-top: 20px;
   font-size: 18px;
   color: #ff0000;
+}
+
+
+.iframe-container {
+  width: 800px;
+  height: 600px;
+  border: none;
 }

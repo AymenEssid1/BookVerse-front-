@@ -1,10 +1,15 @@
-import { Component, Input, Inject, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, Inject, OnInit, EventEmitter, ElementRef, ViewChild  } from '@angular/core';
 import { HeaderComponent } from 'src/app/layouts/full/header/header.component';
 import { BookService } from 'src/app/SERVICE/BookService';
 import { MatDialog } from '@angular/material/dialog';
 import { BookdetailComponent } from '../bookdetail/bookdetail.component';
 import { CartService } from 'src/app/SERVICE/CartService';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { paymentService } from 'src/app/SERVICE/paymentService';
 
 
 
@@ -15,7 +20,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 
 export class FrontPageComponent {
-  headerComponent: HeaderComponent;
+ // headerComponent: HeaderComponent;
   books: any[];
   OGbooks:any[];
   bookId: number;
@@ -24,11 +29,45 @@ export class FrontPageComponent {
   sortingOption: string;
   isSortOrderAscending: boolean = true; // Property to track the sort order
 
+  lol:any;
 
   cart:any;
   userID:number;
 
-  constructor(private bookService: BookService, private dialog: MatDialog) { }
+  @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
+
+
+  @ViewChild('iframe') iframe: ElementRef;
+  showIframe = false;
+  iframeUrl: SafeResourceUrl = '';
+////////////////////////////////////////////////////
+  openIframe(url: string): void {
+    this.showIframe = true;
+    this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+
+
+  }
+
+  handlePaymentComplete(event: MessageEvent) {
+    if (event.data.event_id === 'paymee.complete') {
+      // Close the iframe
+      this.showIframe = false;
+    }
+  }
+///////////////////////////////////////////////////////////
+  incrementSum() {
+    this.headerComponent.sum += 1; // Increment the sum in the Header component by 1
+  }
+
+  resetSum() {
+    this.headerComponent.sum = 0; //this resets the cart 
+  }
+  paymentService: paymentService;
+
+
+  constructor(paymentService:paymentService,private bookService: BookService,private sanitizer: DomSanitizer,private route: ActivatedRoute,
+     private dialog: MatDialog,private cartService: CartService,private snackBar: MatSnackBar ,private cookieService:CookieService,
+     ) { this.paymentService = paymentService;}
   ngOnInit() {
     this.bookService.getBooks().subscribe(
       (response) => {
@@ -44,12 +83,109 @@ export class FrontPageComponent {
     );
     
     
-    
+    //////////////////
+    window.addEventListener('message', this.handlePaymentComplete.bind(this), false);
+
+    this.route.queryParams.subscribe((params) => {
+      const searchQuery = params['search'];
+      if (searchQuery) {
+        // Execute the search functionality using the searchQuery
+        this.query = params['search'] || ''; // Set the query property from the query parameter
+      this.applySearch(); // Execute the search functionality
+      }
+    });
+
+  const storedResponse = this.cookieService.get('orderResponse');
+  if (storedResponse) {
+    const response = JSON.parse(storedResponse);
+    // Extract the necessary parameters from the response and call the checkOrder function
+    const orderId = response.order.id;
+    const token = response.token;
+    this.checkOrder(orderId, token);
+    this.cookieService.delete('orderResponse');
 
   }
 
-  
+  }
 
+
+  checkOrder(orderId:number,token:string){
+   console.log("check started");
+   this.paymentService.checkOrder(orderId, token).subscribe(
+    (response) => {
+      console.log('Order checked:', response); 
+      if(response.status==="success")
+      { this.resetSum();
+        this.snackBar.open('successful payment', 'Close', { duration: 10000 });
+        
+      }
+     
+    },
+    (error) => {
+      if (error.status === 406) {
+        console.error('Payment error - Not Acceptable:', error); // Log the error to the console
+        this.snackBar.open('Payment Cancelled', 'Close', { duration: 10000 });
+      } else {
+        console.error('Error checking order:', error); // Log other errors to the console
+      }
+    }
+  );
+  }
+ 
+
+  addToCart(bookId: number): Promise<void> {
+    const token: any = localStorage.getItem('jwtToken');
+    const jwtHelper = new JwtHelperService();
+    const decodedToken = jwtHelper.decodeToken(token);
+    const userId = decodedToken.id;
+  
+    return new Promise<void>((resolve, reject) => {
+      this.cartService.addItemToCart(userId, bookId).subscribe(
+        (response) => {
+          console.log(response);
+          this.snackBar.open('Book added to cart', 'Close', { duration: 2000 }); // Display the snackbar message
+          resolve(); // Resolve the promise when the API call completes
+          this.incrementSum();
+        },
+        (error) => {
+          console.log(typeof userId + typeof bookId);
+          console.error(error);
+          // reject(error); // Reject the promise if there's an error
+        }
+      );
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  addToCart1(bookId:number){
+
+    const token: any = localStorage.getItem('jwtToken');
+    const jwtHelper = new JwtHelperService();
+    const decodedToken = jwtHelper.decodeToken(token);
+    const userid = decodedToken.id;
+
+    this.cartService.addItemToCart(userid,bookId).subscribe(
+      () => {
+        console.log("added to cart");
+      },
+      (error) => {
+        console.log('Error adding to cart', error);
+      }
+    );
+
+
+
+  }
  
   filter(category: string, author: string, priceRange: number, rating: number) {
   this.books = this.OGbooks.filter((book) => {

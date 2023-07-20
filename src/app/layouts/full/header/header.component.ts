@@ -13,6 +13,7 @@ import {  Inject, OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CartService } from 'src/app/SERVICE/CartService';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -26,13 +27,20 @@ export class HeaderComponent {
   @Output() toggleMobileNav = new EventEmitter<void>();
   @Output() toggleMobileFilterNav = new EventEmitter<void>();
   @Output() toggleCollapsed = new EventEmitter<void>();
-
+  @Input() cart: any;
   showFiller = false;
 
-  constructor(private cartService :CartService,public dialog: MatDialog,private location: Location,private router: Router) {}
+  constructor(private cartService :CartService,public dialog: MatDialog,private location: Location,private router: Router) {
+    
+  }
 
   userEmail: string;
-  cart:any;
+  //cart:any;
+  sum:number;
+  private decrementSumSubscription: Subscription;
+  private decrementSum2Subscription: Subscription;
+
+
 
   ngOnInit() {
     const token = localStorage.getItem('jwtToken');
@@ -44,9 +52,31 @@ export class HeaderComponent {
         console.error('Error decoding JWT token:', error);
       });
     }
-    this.getCart();
+    this.getCart().then(() => {
+      console.log("Sum of quantities in ngOnInit:", this.sum);
+    });
+
+    this.decrementSumSubscription = this.cartService.decrementSum$.subscribe(() => {
+      this.decrementSum();
+    });
+
+    this.decrementSum2Subscription = this.cartService.decrementSum2$.subscribe((quant: number) => {
+      this.decrementSum2(quant);
+    });
+   
   }
 
+
+  
+
+
+  decrementSum() {
+    this.sum -= 1;
+  }
+  decrementSum2(quant:number){
+
+    this.sum -= quant;
+  }
   
   
   getCart(): Promise<void> {
@@ -58,7 +88,13 @@ export class HeaderComponent {
       this.cartService.getCartbyUserId(id).subscribe(
         (response) => {
           this.cart = response;
-          console.log(this.cart);
+          console.log(this.cart.items);
+          this.sum = this.cart.items.reduce((accumulator:number, currentItem:{ id: number, book: any, quantity: number }) => {
+            return accumulator + currentItem.quantity;
+          }, 0);
+          
+          console.log("Sum of quantities:", this.sum);
+          
           resolve(); // Resolve the promise when the API call completes
         },
         (error) => {
@@ -113,4 +149,6 @@ export class HeaderComponent {
     this.location.replaceState('/authentication/login');
     this.router.navigate(['/authentication/login']);
   }
+
+
 }

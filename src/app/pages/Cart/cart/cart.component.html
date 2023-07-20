@@ -1,4 +1,9 @@
-<div *ngFor="let item of cart.items" class="card" >
+<div class="container">
+  <div *ngIf="cart.items.length === 0; else cartItems" class="empty-cart-message">
+    <p>Your cart is empty</p>
+  </div>
+  <ng-template #cartItems>
+<div *ngFor="let item of cart.items" class="card custom-card" >
     <div class="card-body">
       <div class="row">
         <div class="col-md-9">
@@ -7,15 +12,28 @@
           <p class="card-text">Price: {{ item.book.price }}</p>
         </div>
         <div class="col-md-3 d-flex align-items-center justify-content-end">
-          <button class="btn btn-danger" >Remove</button>
+          <button mat-icon-button color="info" (click)="delete0(item.book.id, item.quantity)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+          
+          <button mat-icon-button color="info" (click)="delete1(item.book.id)">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          
         </div>
       </div>
     </div>
   </div>
-  
-  <hr>
-  
-  <div>Total Price: {{ cart.totalPrice }}</div>
+</ng-template>
   
   
+  <div class="total-price">Total Price :{{ cart.totalPrice | number:'1.2-2' }} TND
+    <button (click)="goToOrder()">Place Order</button>
+
+
+  </div>
+
+</div>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   

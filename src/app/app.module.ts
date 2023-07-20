@@ -39,6 +39,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ClientSidebarComponent } from './pages/Client/client-sidebar/client-sidebar.component';
 import { BookdetailComponent } from './pages/Client/bookdetail/bookdetail.component';
 import { CartComponent } from './pages/Cart/cart/cart.component';
+import { OrderComponent } from './pages/Client/order/order.component';
 
 
 
@@ -60,7 +61,8 @@ import { CartComponent } from './pages/Cart/cart/cart.component';
     EditUserComponent,
     AddUserComponent,
     CartComponent,
-    BookdetailComponent
+    BookdetailComponent,
+    OrderComponent
   ],
   imports: [
     
