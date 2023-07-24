@@ -1,1 +1,67 @@
-<p>bookdetail works!</p>
+<!-- Import Angular Material components -->
+<mat-card class="book-card">
+
+    <mat-card-header>
+        <mat-card-title>{{ book.name }}</mat-card-title>
+        <mat-card-subtitle>by {{ book.author }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="imageANDrev">
+        
+            <img mat-card-image [src]="'http://localhost:8080/api/v1/book/image/' + book.id" alt="{{ book.name }}"
+            class="book-image" />
+        
+        
+        
+            <h6 style="font-family: Plus Jakarta Sans;">Review:</h6>
+            <div class="starss">
+                
+                <input class="starss starss-5" id="starss-5" type="radio" [(ngModel)]="selectedStar" value="5" />
+                <label class="starss starss-5" for="starss-5" [ngClass]="{ 'active': selectedStar >= 5 }"></label>
+                <input class="starss starss-4" id="starss-4" type="radio" [(ngModel)]="selectedStar" value="4" />
+                <label class="starss starss-4" for="starss-4" [ngClass]="{ 'active': selectedStar >= 4 }"></label>
+                <input class="starss starss-3" id="starss-3" type="radio" [(ngModel)]="selectedStar" value="3" />
+                <label class="starss starss-3" for="starss-3" [ngClass]="{ 'active': selectedStar >= 3 }"></label>
+                <input class="starss starss-2" id="starss-2" type="radio" [(ngModel)]="selectedStar" value="2" />
+                <label class="starss starss-2" for="starss-2" [ngClass]="{ 'active': selectedStar >= 2 }"></label>
+                <input class="starss starss-1" id="starss-1" type="radio" [(ngModel)]="selectedStar" value="1" />
+                <label class="starss starss-1" for="starss-1" [ngClass]="{ 'active': selectedStar >= 1 }"></label>
+               
+                
+            </div>
+            <div class="button-container">
+                <button class="rate-button" (click)="ratebook(selectedStar)" [disabled]="isButtonDisabled">
+                    <span class="button-text">Rate Book</span>
+                  </button>
+                <div *ngIf="isButtonDisabled" class="cooldown-message">
+                  You can review again in 5 minutes.
+                </div>
+              </div>
+              
+            
+
+           
+        
+
+
+    </div>
+
+
+    <mat-card-content>
+
+        <p><strong>Category:</strong> {{ book.category }}</p>
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Price:</strong> ${{ book.price }}</p>
+        <p><strong>Average Review:</strong> {{ book.averageReview }}/5</p>
+        <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12 ml-2" *ngIf="book.quantity === 0">
+
+            Out of Stock
+        </span>
+        <span class="bg-light-primary text-primary rounded f-w-600 p-6 p-y-4 f-s-12 ml-2"
+            *ngIf="book.quantity >= 1 && book.quantity <= 25">Limited Quantity</span>
+
+
+
+
+    </mat-card-content>
+
+</mat-card>

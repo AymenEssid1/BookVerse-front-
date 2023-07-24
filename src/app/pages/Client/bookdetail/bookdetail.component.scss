@@ -1,0 +1,113 @@
+.mat-card {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 0;
+  }
+  
+  .book-image {
+    max-width: 200px;
+    margin-right:600px;
+  }
+  
+  .book-card {
+    margin-bottom: 0; /* Override the default margin-bottom */
+  }
+  
+  /* Add other styles as needed */
+  
+  div.starss {
+    width: 120px;
+    display: inline-block;
+    direction: rtl;
+    text-align: left;
+    //z-index: 999;
+  }
+  
+  .mt-200 {
+    margin-top: 10px;
+  }
+  
+  input.starss {
+    display: none;
+    z-index: 9;
+  }
+  
+  
+  label.starss {
+    padding: 2px;
+    font-size: 17px;
+    color: #268de0;
+    transition: all .2s;
+  }
+  
+  input.starss:checked ~ label.starss:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+  }
+  
+  input.starss-5:checked ~ label.starss:before {
+    color: #FE7;
+    text-shadow: 0 0 20px #fffc5d;
+  }
+  
+  input.starss-1:checked ~ label.starss:before {
+    color: rgb(255, 0, 0);
+  }
+  
+  label.starss:hover {
+    transform: rotate(-15deg) scale(1.3);
+  }
+  
+  label.starss:before {
+    content: '\f006';
+    font-family: FontAwesome;
+  }
+  
+  label.starss.active:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    height: 40px; /* Adjust the height to your preference */
+  }
+  .cooldown-message {
+    color: red;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .imageANDrev{
+    display: flex;
+   align-items: center;
+
+  }
+
+  
+  
+  .rate-button {
+    background-color: #268de0;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .rate-button:hover {
+    background-color: #1b69c0;
+  }
+  
+  .rate-button:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+  }
+  
+  .button-text {
+    margin-right: 5px;
+  }

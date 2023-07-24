@@ -181,36 +181,6 @@ export class FrontPageComponent {
     });
   }
 
-
-
-
-
-
-
-
-
-
-
-
-  addToCart1(bookId:number){
-
-    const token: any = localStorage.getItem('jwtToken');
-    const jwtHelper = new JwtHelperService();
-    const decodedToken = jwtHelper.decodeToken(token);
-    const userid = decodedToken.id;
-
-    this.cartService.addItemToCart(userid,bookId).subscribe(
-      () => {
-        console.log("added to cart");
-      },
-      (error) => {
-        console.log('Error adding to cart', error);
-      }
-    );
-
-
-
-  }
  
   filter(category: string, author: string, priceRange: number, rating: number) {
   this.books = this.OGbooks.filter((book) => {
@@ -342,11 +312,10 @@ export class FrontPageComponent {
   }
 */
 
-  openEdit(bookId: number): void {
+  openDetails(bookId: number): void {
     this.bookId = bookId;
     const dialogRef = this.dialog.open(BookdetailComponent, {
-      width: '1000px',
-      height: '620px',
+      
       disableClose: false,
       data: { bookId: this.bookId },
     });

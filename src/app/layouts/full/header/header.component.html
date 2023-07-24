@@ -53,17 +53,21 @@
   <!-- --------------------------------------------------------------- -->
 
   <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"
-        ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
-      >Order History
-    </button>
+    
     <button mat-menu-item>
       <mat-icon class="d-flex align-items-center"
         ><i-tabler name="question-mark" class="icon-18 d-flex"></i-tabler></mat-icon
       >Placeholder
     </button>
-    
+   <ng-container [ngSwitch]="role">
+    <span *ngSwitchCase="'USER'">
+      <button mat-menu-item (click)="openHistory()">
+        <mat-icon class="d-flex align-items-center"
+          ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
+        >Order History
+      </button>
+    </span>
+  </ng-container>
 
     <div class="p-x-12 m-t-12">
       <a

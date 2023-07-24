@@ -15,6 +15,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { CartService } from 'src/app/SERVICE/CartService';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/SERVICE/UserService';
+import { HistoryComponent } from 'src/app/pages/Client/history/history.component';
 
 
 @Component({
@@ -169,7 +170,20 @@ export class HeaderComponent {
   }
 
 
+  openHistory(): void {
   
+    const dialogRef = this.dialog.open(HistoryComponent, {
+      width: '1100px',
+      height: '720px',
+      disableClose: false,
+      data: {id: this.id},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The popup was closed');
+      
+    });
+  }
 
 
 }

@@ -1,0 +1,59 @@
+/* Custom styles for the order cards */
+
+.container{
+    overflow: hidden; /* Hide horizontal overflow */
+    text-align: center;
+
+}
+.order-history-title {
+    background-color: hsl(224, 100%, 68%);
+    color: white;
+    padding: 10px; 
+    border-radius: 5px;
+  }
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -15px;
+  }
+  
+  .order-card {
+    width: calc(33.33% - 30px);
+    margin: 15px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #f7f7f7; /* Set a light background color */
+    border: 1px solid #e0e0e0; /* Set border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide horizontal overflow */
+  }
+  
+  .order-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .order-item {
+    font-size: 13px;
+    padding: 8px 10px;
+    border-top: 1px solid #e0e0e0; /* Add a border between items */
+  }
+  
+  /* Custom styles for the "No order history found" message */
+  div[ngIf="paidOrders.length === 0"] {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  

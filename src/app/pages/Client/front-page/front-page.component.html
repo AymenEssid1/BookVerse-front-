@@ -103,7 +103,7 @@
       <div class="col-6 col-md-4 col-lg-3" *ngFor="let book of sortedBooks">
     
         <mat-card class="cardWithShadow productcard overflow-hidden">
-          <a (click)="openEdit(book.id)">
+          <a (click)="openDetails(book.id)">
             <img class="book-image" [src]="'http://localhost:8080/api/v1/book/image/' + book.id" />
           </a>
           <mat-card-content class="p-b-24 p-t-12 position-relative">

@@ -1,1 +1,25 @@
-<p>history works!</p>
+<div class="container">
+    <h2 class="order-history-title">Order History</h2>
+<div *ngIf="paidOrders.length > 0">
+   
+    <div class="card-deck">
+      <div class="card order-card" *ngFor="let order of paidOrders">
+        <div class="card-body">
+          <h5 class="card-title">Order ID: {{ order.id }}</h5>
+          <p class="card-text"><strong>Order Date:</strong> {{ order.orderDate }}</p>
+          <p class="card-text"><strong>Payment Status:</strong> {{ order.paymentStatus }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item order-item" *ngFor="let item of order.items | keyvalue">
+              <strong>Book:</strong> {{ parseBookString(item.key).name }}<br />
+              <strong>Quantity:</strong> {{ item.value }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="paidOrders.length === 0">
+    <p>No paid order history found.</p>
+  </div>
+</div>

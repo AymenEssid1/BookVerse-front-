@@ -1,7 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import axios from 'axios';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Injectable({
@@ -83,5 +85,33 @@ createBookV2(image: File, name: string, author: string, description: string, pri
 
   return this.http.post<any>(`${this.baseUrl}/addBookV2`, formData, { headers });
 }
+
+
+
+
+
+rateBook(bookId:number, rating:number): Observable<any> {
+  const token: any = localStorage.getItem('jwtToken');
+  const jwtHelper = new JwtHelperService();
+  const decodedToken = jwtHelper.decodeToken(token);
+  const id = decodedToken.id;
+  
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  const params = new HttpParams().set('bookId', bookId.toString()).set('userId', id.toString()).set('rating', rating.toString());
+  return this.http.post<any>(`${this.baseUrl}/addRating`, null, { headers, params });//faza houni mtaa el param
+}
+
+getReview(bookId:number): Observable<any> {
+  const token: any = localStorage.getItem('jwtToken');
+  const jwtHelper = new JwtHelperService();
+  const decodedToken = jwtHelper.decodeToken(token);
+  const id = decodedToken.id;
+  
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  const params = new HttpParams().set('bookId', bookId.toString()).set('userId', id.toString());
+  const options = { headers, params };
+  return this.http.get<any>(`${this.baseUrl}/getReviewByUserAndBook`,options);//faza houni mtaa el param
+}
+
 
 }
