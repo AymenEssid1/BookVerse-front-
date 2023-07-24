@@ -27,11 +27,10 @@
 </ng-template>
   
   
-  <div class="total-price">Total Price :{{ cart.totalPrice | number:'1.2-2' }} TND
-    <button (click)="goToOrder()">Place Order</button>
-
-
-  </div>
+<div class="d-flex justify-content-between align-items-center total-price-btn-container">
+  <div class="total-price">Total Price: {{ cart.totalPrice | number:'1.2-2' }} TND</div>
+  <button class="custom-btn btn-15" (click)="goToOrder()">Order</button>
+</div>
 
 </div>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

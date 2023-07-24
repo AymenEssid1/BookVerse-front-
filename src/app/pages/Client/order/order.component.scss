@@ -81,7 +81,7 @@
   }
   
   .order {
-    background-color: hsl(224, 100%, 68%);
+    background-color: #f3f3f3;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -151,7 +151,7 @@
   }
   
   .card-header {
-    background-color: hsl(0, 0%, 96%);
+    background-color: #f3f3f3;
     color: #000000;
     padding: 10px;
     border-top-left-radius: 8px;
@@ -181,21 +181,22 @@
     font-weight: bold;
     margin-top: 20px;
     text-align: right;
-    background-color: #fff;
+    background-color: #f3f3f3;
     padding: 10px;
     border-radius: 4px;
   }
   
-  .bigHeader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    height: 100px;
-    z-index: 1; /* Ensure the header is displayed above the content */
-    background-color: #fff;
-}
+  .bigHeader{
+    height:95px;
+    background-color: hsl(224, 100%, 68%);
+    display: flex;
+    align-items: center;
+    position: fixed; /* Add this to fix the header at the top */
+    top: 0; /* Place the fixed header at the top of the page */
+    width: 100%; /* Make the header stretch the full width of the page */
+    z-index: 2;
+  
+  }
 
 /* Style the content container */
 .content {
@@ -207,4 +208,69 @@
     align-items: center;
   }
 
- 
+  .total-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .total-price {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+
+  
+  
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+
+  /* 15 */
+.btn-15 {
+    background: black;
+    border: none;
+    z-index: 1;
+  }
+  .btn-15:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #663dff;
+    border-radius: 5px;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    transition: all 0.3s ease;
+  }
+  .btn-15:hover {
+    color: #fff;
+  }
+  .btn-15:hover:after {
+    left: 0;
+    width: 100%;
+  }
+  .btn-15:active {
+    top: 2px;
+  }
+  

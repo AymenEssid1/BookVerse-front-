@@ -14,6 +14,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CartService } from 'src/app/SERVICE/CartService';
 import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/SERVICE/UserService';
 
 
 @Component({
@@ -30,11 +31,14 @@ export class HeaderComponent {
   @Input() cart: any;
   showFiller = false;
 
-  constructor(private cartService :CartService,public dialog: MatDialog,private location: Location,private router: Router) {
+  constructor(private cartService :CartService,public dialog: MatDialog,private location: Location,private router: Router,
+    private userService :UserService) {
     
   }
 
-  userEmail: string;
+  id: number;
+  role:string;
+  username:string;
   //cart:any;
   sum:number;
   private decrementSumSubscription: Subscription;
@@ -46,8 +50,19 @@ export class HeaderComponent {
     const token = localStorage.getItem('jwtToken');
     if (token) {
       this.decodeJwtToken(token).then((decodedToken: any) => {
-        this.userEmail = decodedToken.sub; //gotta fix this 
+        this.id = decodedToken.id; 
+        this.role=decodedToken.role; 
         console.log('Decoded JWT token:', decodedToken);
+        console.log(this.id);
+        this.userService.getUserbyID(this.id).subscribe(
+          (response) => {
+            this.username = response.firstname;
+            console.log(response);
+          },
+          (error) => {
+            console.error('Error retrieving user:', error);
+          }
+        );
       }).catch((error: any) => {
         console.error('Error decoding JWT token:', error);
       });
@@ -63,6 +78,9 @@ export class HeaderComponent {
     this.decrementSum2Subscription = this.cartService.decrementSum2$.subscribe((quant: number) => {
       this.decrementSum2(quant);
     });
+
+    
+    
    
   }
 
@@ -149,6 +167,9 @@ export class HeaderComponent {
     this.location.replaceState('/authentication/login');
     this.router.navigate(['/authentication/login']);
   }
+
+
+  
 
 
 }

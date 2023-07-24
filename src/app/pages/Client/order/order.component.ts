@@ -6,6 +6,7 @@ import { CartService } from 'src/app/SERVICE/CartService';
 import { paymentService } from 'src/app/SERVICE/paymentService';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
+import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class OrderComponent {
   iframeUrl: SafeResourceUrl;
   
 
-  constructor(private router: Router, private cartService: CartService ,private paymentService: paymentService,private domSanitizer: DomSanitizer,
+  constructor(private pageUpdateService: PageUpdateService,private router: Router, private cartService: CartService ,private paymentService: paymentService,private domSanitizer: DomSanitizer,
     private cookieService:CookieService) {
 
   }
@@ -27,6 +28,9 @@ export class OrderComponent {
   ngOnInit() {
     
    this.getCart();
+   this.pageUpdateService.pageUpdated$.subscribe(() => {
+    this.getCart();
+  });
    
   }
 
@@ -68,10 +72,43 @@ export class OrderComponent {
 
       },
       (error) => {
-        console.error('Error creating order:', error); 
-       //TODO  this.iframeUrl = null; //gotta handle this later
+        if (error.status === 406) {
+          // Handle 406 error here
+          this.showAlert(error.error+" is not in stock ");
+        } else {
+          console.error('Error creating order:', error);
+        }
 
       }
     );
   }
+  showAlert(message: string): void {
+    const alertBox = document.createElement('div');
+    alertBox.innerHTML = message;
+    alertBox.classList.add('custom-alert');
+  
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .custom-alert {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        z-index: 9999;
+      }
+    `;
+  
+    document.head.appendChild(style);
+    document.body.appendChild(alertBox);
+  
+    setTimeout(() => {
+      alertBox.remove();
+      style.remove();
+    }, 2000);
+  }
+  
 }

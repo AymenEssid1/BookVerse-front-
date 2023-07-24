@@ -44,34 +44,11 @@
   color: #000000;
   /* Empty star color */
 }
-.bigHeader{
-  height: 100px;
 
 
-}
 
-.sidebar {
-  margin-top: 80px;
-  padding-top: 20px;
-  width: 250px;
-  background-color: #ffffff;
-  position: fixed;
-  /* Set the position to fixed */
-  top: 50PX;
-  /* Align the sidebar to the top of the page */
-  left: 25px;
-  /* Align the sidebar to the left side of the page */
-  bottom: 0;
-  /* Extend the sidebar to the bottom of the page */
-}
 
-.content {
-  margin-left: 300px;
-  /* Add a left margin equal to the width of the sidebar */
-  padding: 20px; /* Shorter way to add padding on all sides */
-  overflow-y: auto; /* Make the content scrollable vertically */
-  height: calc(100vh - 100px); /* Set a fixed height for the content area (viewport height - height of .bigHeader) */
-}
+
 
 .row {
   display: flex;
@@ -83,12 +60,13 @@
   /* Adjust the column width as per your requirements */
 }
 
+
 @media (max-width: 768px) {
 
   /* Apply responsive styles for smaller screens */
   .sidebar {
     width: 100%;
-    position: static;
+    //position: static;
     /* Reset the position to static for smaller screens */
     margin-bottom: 20px;
     /* Add some spacing at the bottom of the sidebar */
@@ -104,14 +82,7 @@
 }
 
 
-.head {
-  display: flex;
-  align-items: center;
-}
-.body {
-  display: flex;
-  align-items: center;
-}
+
 
 .search-bar {
   flex: 1;
@@ -171,9 +142,101 @@
   color: #ff0000;
 }
 
+.bigHeader{
+  height:95px;
+  background-color: hsl(224, 100%, 68%);
+  display: flex;
+  align-items: center;
+  position: fixed; /* Add this to fix the header at the top */
+  top: 0; /* Place the fixed header at the top of the page */
+  width: 100%; /* Make the header stretch the full width of the page */
+  z-index: 2;
 
-.iframe-container {
-  width: 800px;
-  height: 600px;
-  border: none;
 }
+
+
+.carousel{
+  position: relative;
+  height :700px;
+  background-color: #f3f3f3;
+  margin-top: 95px;
+  padding: 20px;
+  
+
+}
+
+.content {
+  padding: 20px;
+  background-color: #f3f3f3;
+  flex: 1; /* Take up all available space in the flex container */
+}
+
+.sidebar {
+ 
+  margin-left: 25px;
+  //width: 200px; /* Set an initial width for the sidebar */
+ 
+}
+
+.body {
+  position: relative;
+  //padding: 5px;
+  background-color: #f3f3f3;
+  display: flex;
+ // align-items: center;
+}
+
+.sidebar.hidden {
+  display: none;
+}
+
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+}
+
+.carousel-caption h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+}
+
+/////////////////////
+.sort-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Places the toggle button on the far right */
+}
+
+.filter-button {
+  border: none;
+  background: none;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto; /* Push the button to the right */
+}
+
+.filter-button i {
+  /* Adjust the icon size if needed */
+  font-size: 16px;
+}
+
+/* Import the FontAwesome icon library (Make sure you've included it in your project) */
+@import '~@fortawesome/fontawesome-free/css/all.css';

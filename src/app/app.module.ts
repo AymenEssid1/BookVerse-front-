@@ -40,6 +40,8 @@ import { ClientSidebarComponent } from './pages/Client/client-sidebar/client-sid
 import { BookdetailComponent } from './pages/Client/bookdetail/bookdetail.component';
 import { CartComponent } from './pages/Cart/cart/cart.component';
 import { OrderComponent } from './pages/Client/order/order.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { HistoryComponent } from './pages/Client/history/history.component';
 
 
 
@@ -62,7 +64,8 @@ import { OrderComponent } from './pages/Client/order/order.component';
     AddUserComponent,
     CartComponent,
     BookdetailComponent,
-    OrderComponent
+    OrderComponent,
+    HistoryComponent
   ],
   imports: [
     
@@ -77,6 +80,7 @@ import { OrderComponent } from './pages/Client/order/order.component';
     MatTableModule,
     MatSortModule,
     TablerIconsModule.pick(TablerIcons),
+    CarouselModule.forRoot(),
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],

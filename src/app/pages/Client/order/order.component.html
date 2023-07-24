@@ -1,7 +1,7 @@
 
 <div class="bigHeader">
 
-    <div class="head">
+    
         <div style="width: 20%;"><app-branding></app-branding></div>
         <div class="search-bar">
             <input type="text" class="form-control" [(ngModel)]="query" placeholder="Search"
@@ -10,15 +10,13 @@
         </div>
 
         <app-header [cart]="cart"></app-header>
-    </div>
+    
 
 </div>
+
+
 <div class="content">
-<div class="order">
-    <h2>Order</h2>
-    <!-- Content of the "Order" component goes here -->
 
-</div>
 <div class="order-card">
     <div class="card-header">
         <h4>Your Order</h4>
@@ -42,9 +40,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="total-price"> <button (click)="order()"> ORDER</button> Total Price: {{ cart.totalPrice | number:'1.2-2' }} TND</div>
-<!--                 <iframe *ngIf="iframeUrl" [src]="iframeUrl" width="100%" height="500"></iframe>
- -->
+                <div class="total-price-container">
+                    <div class="total-price">Total Price: {{ cart.totalPrice | number:'1.2-2' }} TND</div>
+                    <button class="custom-btn btn-15"(click)="order()" [disabled]="cart.totalPrice === 0">Payment</button>
+                  </div>
             </div>
         </div>
     </div>

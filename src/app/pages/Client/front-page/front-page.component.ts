@@ -1,4 +1,4 @@
-import { Component, Input, Inject, OnInit, EventEmitter, ElementRef, ViewChild  } from '@angular/core';
+import { Component, Input, Inject, HostListener, EventEmitter, ElementRef, ViewChild  } from '@angular/core';
 import { HeaderComponent } from 'src/app/layouts/full/header/header.component';
 import { BookService } from 'src/app/SERVICE/BookService';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,6 +20,31 @@ import { paymentService } from 'src/app/SERVICE/paymentService';
 })
 
 export class FrontPageComponent {
+
+  
+
+  sidebarHidden = true;
+
+
+  toggleSidebar() {
+    this.sidebarHidden = !this.sidebarHidden;
+  }
+  
+
+  // Carousel Slides Data
+  carouselSlides = [
+    {
+      image: 'assets/slide1.jpg', // Replace with your image path
+      title: 'Welcome to Our Book Store!',
+      description: 'Explore our vast collection of books and find your next favorite read.'
+    },
+    {
+      image: 'assets/slide2.jpg', // Replace with your image path
+      title: 'New Arrivals',
+      description: 'Discover the latest and most exciting books that just hit the shelves.'
+    },
+    // Add more slides with different images and messages as needed
+  ];
  // headerComponent: HeaderComponent;
   books: any[];
   OGbooks:any[];
@@ -116,7 +141,7 @@ export class FrontPageComponent {
       console.log('Order checked:', response); 
       if(response.status==="success")
       { this.resetSum();
-        this.snackBar.open('successful payment', 'Close', { duration: 10000 });
+        this.showAlert("successful payment",0);
         
       }
      
@@ -124,7 +149,7 @@ export class FrontPageComponent {
     (error) => {
       if (error.status === 406) {
         console.error('Payment error - Not Acceptable:', error); // Log the error to the console
-        this.snackBar.open('Payment Cancelled', 'Close', { duration: 10000 });
+        this.showAlert("failed payment",1);
       } else {
         console.error('Error checking order:', error); // Log other errors to the console
       }
@@ -333,6 +358,36 @@ export class FrontPageComponent {
   }
 
   
+  showAlert(message: string, type:number): void {
+    const alertBox = document.createElement('div');
+    alertBox.innerHTML = message;
+    alertBox.classList.add('custom-alert');
+    let color ="hsl(224, 100%, 68%);"
+    if(type===1){color="red;"}
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .custom-alert {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: ${color}
+        color: white;
+        padding: 100px; /* Increase the padding */
+        border-radius: 5px;
+        font-size: 48px; /* Increase the font size */
+        z-index: 9999;
+      }
+    `;
+  
+    document.head.appendChild(style);
+    document.body.appendChild(alertBox);
+  
+    setTimeout(() => {
+      alertBox.remove();
+      style.remove();
+    }, 3000);
+  }
   
   
 

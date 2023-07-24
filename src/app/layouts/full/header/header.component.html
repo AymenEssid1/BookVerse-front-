@@ -18,7 +18,7 @@
   <!-- --------------------------------------------------------------- -->
   <!-- profile Dropdown -->
   <!-- --------------------------------------------------------------- -->
-  <span *ngIf="userEmail" class="ml-2">Hello, {{ userEmail }}</span>
+  <span *ngIf="username" class="ml-2">Hello, {{username }}</span>
   <button
     mat-icon-button
     [matMenuTriggerFor]="profilemenu"
@@ -35,14 +35,19 @@
  <!-- --------------------------------------------------------------- -->
   <!-- CART -->
   <!-- --------------------------------------------------------------- -->
-  <button mat-icon-button aria-label="Notifications" (click)="openCart()">
-    <i-tabler
-      class="d-flex"
-      name="shopping-cart"
-      matBadge={{sum}}
-      matBadgeColor="primary"
-    ></i-tabler>
-  </button>
+  <ng-container [ngSwitch]="role">
+    <span *ngSwitchCase="'USER'">
+      <button mat-icon-button aria-label="Notifications" (click)="openCart()">
+        <i-tabler
+          class="d-flex"
+          name="shopping-cart"
+          matBadge={{sum}}
+          matBadgeColor="warn"
+        ></i-tabler>
+      </button>
+    </span>
+  </ng-container>
+  
   <!-- --------------------------------------------------------------- -->
   <!-- CART -->
   <!-- --------------------------------------------------------------- -->
@@ -51,21 +56,14 @@
     <button mat-menu-item>
       <mat-icon class="d-flex align-items-center"
         ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Profile
+      >Order History
     </button>
     <button mat-menu-item>
       <mat-icon class="d-flex align-items-center"
-        ><i-tabler name="mail" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Account
+        ><i-tabler name="question-mark" class="icon-18 d-flex"></i-tabler></mat-icon
+      >Placeholder
     </button>
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"
-        ><i-tabler
-          name="list-check"
-          class="icon-18 d-flex"
-        ></i-tabler></mat-icon
-      >My Task
-    </button>
+    
 
     <div class="p-x-12 m-t-12">
       <a
@@ -74,8 +72,7 @@
         mat-stroked-button
         color="primary"
         class="w-100"
-        >Logout</a
-      >
+        >Logout</a>
     </div>
   </mat-menu>
 </mat-toolbar>

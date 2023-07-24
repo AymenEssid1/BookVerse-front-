@@ -1,0 +1,249 @@
+Date : 2023-07-21 17:02:03
+Directory : c:\Users\aymen\Desktop\main
+Total : 157 files,  20341 codes, 371 comments, 1365 blanks, all 22077 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          9 |     13,239 |          2 |          9 |     13,250 |
+| TypeScript         |         62 |      3,101 |        151 |        700 |      3,952 |
+| SCSS               |         50 |      2,054 |         71 |        422 |      2,547 |
+| HTML               |         29 |      1,899 |        146 |        230 |      2,275 |
+| JSON with Comments |          1 |         30 |          1 |          1 |         32 |
+| XML                |          5 |         16 |          0 |          2 |         18 |
+| Markdown           |          1 |          2 |          0 |          1 |          3 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                             | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                |        157 |     20,341 |        371 |      1,365 |     22,077 |
+| . (Files)                                                                                        |          7 |     13,243 |          3 |          7 |     13,253 |
+| src                                                                                              |        150 |      7,098 |        368 |      1,358 |      8,824 |
+| src (Files)                                                                                      |          3 |         22 |          1 |          7 |         30 |
+| src\app                                                                                          |        103 |      5,853 |        336 |      1,141 |      7,330 |
+| src\app (Files)                                                                                  |          7 |        282 |         12 |         30 |        324 |
+| src\app\SERVICE                                                                                  |          6 |        208 |          4 |         93 |        305 |
+| src\app\layouts                                                                                  |         13 |        437 |         49 |         91 |        577 |
+| src\app\layouts\blank                                                                            |          2 |         17 |          3 |          3 |         23 |
+| src\app\layouts\full                                                                             |         11 |        420 |         46 |         88 |        554 |
+| src\app\layouts\full (Files)                                                                     |          2 |         73 |         14 |         18 |        105 |
+| src\app\layouts\full\header                                                                      |          2 |        187 |         18 |         50 |        255 |
+| src\app\layouts\full\sidebar                                                                     |          7 |        160 |         14 |         20 |        194 |
+| src\app\layouts\full\sidebar (Files)                                                             |          4 |         91 |         13 |         13 |        117 |
+| src\app\layouts\full\sidebar\nav-item                                                            |          3 |         69 |          1 |          7 |         77 |
+| src\app\pages                                                                                    |         76 |      4,912 |        271 |        921 |      6,104 |
+| src\app\pages (Files)                                                                            |          2 |         34 |          1 |          4 |         39 |
+| src\app\pages\Books                                                                              |         12 |        711 |         25 |        166 |        902 |
+| src\app\pages\Books\add-book                                                                     |          4 |        162 |          5 |         50 |        217 |
+| src\app\pages\Books\books                                                                        |          4 |        314 |         16 |         69 |        399 |
+| src\app\pages\Books\edit-book                                                                    |          4 |        235 |          4 |         47 |        286 |
+| src\app\pages\Cart                                                                               |          4 |        280 |          4 |         62 |        346 |
+| src\app\pages\Cart\cart                                                                          |          4 |        280 |          4 |         62 |        346 |
+| src\app\pages\Client                                                                             |         16 |      1,205 |         85 |        336 |      1,626 |
+| src\app\pages\Client\bookdetail                                                                  |          4 |         27 |          0 |         11 |         38 |
+| src\app\pages\Client\client-sidebar                                                              |          4 |        234 |          4 |         77 |        315 |
+| src\app\pages\Client\front-page                                                                  |          4 |        567 |         66 |        172 |        805 |
+| src\app\pages\Client\order                                                                       |          4 |        377 |         15 |         76 |        468 |
+| src\app\pages\User                                                                               |         12 |        633 |         16 |        154 |        803 |
+| src\app\pages\User\add-user                                                                      |          4 |        185 |          4 |         42 |        231 |
+| src\app\pages\User\edit-user                                                                     |          4 |        212 |          5 |         47 |        264 |
+| src\app\pages\User\users                                                                         |          4 |        236 |          7 |         65 |        308 |
+| src\app\pages\authentication                                                                     |          8 |        319 |         57 |         54 |        430 |
+| src\app\pages\authentication (Files)                                                             |          2 |         51 |          1 |          8 |         60 |
+| src\app\pages\authentication\login                                                               |          3 |        119 |         38 |         22 |        179 |
+| src\app\pages\authentication\register                                                            |          3 |        149 |         18 |         24 |        191 |
+| src\app\pages\dashboard                                                                          |          3 |        748 |         22 |         36 |        806 |
+| src\app\pages\extra                                                                              |          6 |         77 |          8 |         21 |        106 |
+| src\app\pages\extra (Files)                                                                      |          2 |         43 |          2 |          9 |         54 |
+| src\app\pages\extra\icons                                                                        |          2 |         18 |          3 |          6 |         27 |
+| src\app\pages\extra\sample-page                                                                  |          2 |         16 |          3 |          6 |         25 |
+| src\app\pages\ui-components                                                                      |         13 |        905 |         53 |         88 |      1,046 |
+| src\app\pages\ui-components (Files)                                                              |          2 |         66 |          3 |          8 |         77 |
+| src\app\pages\ui-components\badge                                                                |          2 |         64 |          0 |         14 |         78 |
+| src\app\pages\ui-components\chips                                                                |          3 |        214 |         26 |         29 |        269 |
+| src\app\pages\ui-components\lists                                                                |          2 |        192 |         21 |         14 |        227 |
+| src\app\pages\ui-components\menu                                                                 |          2 |        182 |          0 |         12 |        194 |
+| src\app\pages\ui-components\tooltips                                                             |          2 |        187 |          3 |         11 |        201 |
+| src\app\services                                                                                 |          1 |         14 |          0 |          6 |         20 |
+| src\assets                                                                                       |         44 |      1,223 |         31 |        210 |      1,464 |
+| src\assets\i18n                                                                                  |          4 |         28 |          0 |          4 |         32 |
+| src\assets\images                                                                                |          5 |         16 |          0 |          2 |         18 |
+| src\assets\images\backgrounds                                                                    |          1 |          1 |          0 |          0 |          1 |
+| src\assets\images\logos                                                                          |          2 |          8 |          0 |          1 |          9 |
+| src\assets\images\svgs                                                                           |          2 |          7 |          0 |          1 |          8 |
+| src\assets\scss                                                                                  |         35 |      1,179 |         31 |        204 |      1,414 |
+| src\assets\scss (Files)                                                                          |          3 |        126 |         11 |         39 |        176 |
+| src\assets\scss\grid                                                                             |          3 |        107 |          2 |         25 |        134 |
+| src\assets\scss\helpers                                                                          |         12 |        414 |          9 |         55 |        478 |
+| src\assets\scss\layouts                                                                          |          4 |         90 |          3 |         21 |        114 |
+| src\assets\scss\overrides                                                                        |         10 |        216 |          5 |         43 |        264 |
+| src\assets\scss\pages                                                                            |          2 |        170 |          1 |         16 |        187 |
+| src\assets\scss\themecolors                                                                      |          1 |         56 |          0 |          5 |         61 |
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                         | language           | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\aymen\Desktop\main\README.md                                                            | Markdown           |          2 |          0 |          1 |          3 |
+| c:\Users\aymen\Desktop\main\angular.json                                                         | JSON               |        104 |          0 |          1 |        105 |
+| c:\Users\aymen\Desktop\main\package-lock.json                                                    | JSON               |     13,027 |          0 |          1 |     13,028 |
+| c:\Users\aymen\Desktop\main\package.json                                                         | JSON               |         54 |          0 |          1 |         55 |
+| c:\Users\aymen\Desktop\main\src\app\SERVICE\BookService.ts                                       | TypeScript         |         65 |          1 |         22 |         88 |
+| c:\Users\aymen\Desktop\main\src\app\SERVICE\CartService.ts                                       | TypeScript         |         42 |          0 |         16 |         58 |
+| c:\Users\aymen\Desktop\main\src\app\SERVICE\UserService.ts                                       | TypeScript         |         36 |          0 |         25 |         61 |
+| c:\Users\aymen\Desktop\main\src\app\SERVICE\auth.guard.ts                                        | TypeScript         |         25 |          3 |          5 |         33 |
+| c:\Users\aymen\Desktop\main\src\app\SERVICE\page-update.service.ts                               | TypeScript         |         12 |          0 |          5 |         17 |
+| c:\Users\aymen\Desktop\main\src\app\SERVICE\paymentService.ts                                    | TypeScript         |         28 |          0 |         20 |         48 |
+| c:\Users\aymen\Desktop\main\src\app\app-routing.module.ts                                        | TypeScript         |         70 |          2 |          5 |         77 |
+| c:\Users\aymen\Desktop\main\src\app\app.component.html                                           | HTML               |          1 |          0 |          1 |          2 |
+| c:\Users\aymen\Desktop\main\src\app\app.component.spec.ts                                        | TypeScript         |         31 |          0 |          5 |         36 |
+| c:\Users\aymen\Desktop\main\src\app\app.component.ts                                             | TypeScript         |          8 |          0 |          2 |         10 |
+| c:\Users\aymen\Desktop\main\src\app\app.config.ts                                                | TypeScript         |         24 |          0 |          2 |         26 |
+| c:\Users\aymen\Desktop\main\src\app\app.module.ts                                                | TypeScript         |         70 |          4 |         13 |         87 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\blank\blank.component.html                           | HTML               |          8 |          3 |          1 |         12 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\blank\blank.component.ts                             | TypeScript         |          9 |          0 |          2 |         11 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\full.component.html                             | HTML               |         27 |         12 |          4 |         43 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\full.component.ts                               | TypeScript         |         46 |          2 |         14 |         62 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\header\header.component.html                    | HTML               |         51 |         14 |         17 |         82 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\header\header.component.ts                      | TypeScript         |        136 |          4 |         33 |        173 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\sidebar\branding.component.ts                   | TypeScript         |         19 |          0 |          2 |         21 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\sidebar\nav-item\nav-item.component.html        | HTML               |         21 |          0 |          1 |         22 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\sidebar\nav-item\nav-item.component.ts          | TypeScript         |         33 |          1 |          6 |         40 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\sidebar\nav-item\nav-item.ts                    | TypeScript         |         15 |          0 |          0 |         15 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\sidebar\sidebar-data.ts                         | TypeScript         |         54 |         13 |          5 |         72 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\sidebar\sidebar.component.html                  | HTML               |          6 |          0 |          2 |          8 |
+| c:\Users\aymen\Desktop\main\src\app\layouts\full\sidebar\sidebar.component.ts                    | TypeScript         |         12 |          0 |          4 |         16 |
+| c:\Users\aymen\Desktop\main\src\app\material.module.ts                                           | TypeScript         |         78 |          6 |          2 |         86 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\add-book\add-book.component.html                 | HTML               |         24 |          0 |         11 |         35 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\add-book\add-book.component.scss                 | SCSS               |         33 |          0 |          9 |         42 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\add-book\add-book.component.spec.ts              | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\add-book\add-book.component.ts                   | TypeScript         |         87 |          5 |         24 |        116 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\books\books.component.html                       | HTML               |        100 |          4 |         11 |        115 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\books\books.component.scss                       | SCSS               |          4 |          0 |          1 |          5 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\books\books.component.spec.ts                    | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\books\books.component.ts                         | TypeScript         |        192 |         12 |         51 |        255 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\edit-book\edit-book.component.html               | HTML               |         54 |          0 |         10 |         64 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\edit-book\edit-book.component.scss               | SCSS               |         47 |          0 |         10 |         57 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\edit-book\edit-book.component.spec.ts            | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Books\edit-book\edit-book.component.ts                 | TypeScript         |        116 |          4 |         21 |        141 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Cart\cart\cart.component.html                          | HTML               |         31 |          0 |          7 |         38 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Cart\cart\cart.component.scss                          | SCSS               |        129 |          2 |         18 |        149 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Cart\cart\cart.component.spec.ts                       | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Cart\cart\cart.component.ts                            | TypeScript         |        102 |          2 |         31 |        135 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\bookdetail\bookdetail.component.html            | HTML               |          1 |          0 |          1 |          2 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\bookdetail\bookdetail.component.scss            | SCSS               |          0 |          0 |          1 |          1 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\bookdetail\bookdetail.component.spec.ts         | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\bookdetail\bookdetail.component.ts              | TypeScript         |          8 |          0 |          3 |         11 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\client-sidebar\client-sidebar.component.html    | HTML               |         48 |          0 |          7 |         55 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\client-sidebar\client-sidebar.component.scss    | SCSS               |        110 |          3 |         51 |        164 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\client-sidebar\client-sidebar.component.spec.ts | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\client-sidebar\client-sidebar.component.ts      | TypeScript         |         58 |          1 |         13 |         72 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\front-page\front-page.component.html            | HTML               |        111 |          1 |         32 |        144 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\front-page\front-page.component.scss            | SCSS               |        167 |         18 |         57 |        242 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\front-page\front-page.component.spec.ts         | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\front-page\front-page.component.ts              | TypeScript         |        271 |         47 |         77 |        395 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\order\order.component.html                      | HTML               |         42 |          0 |         11 |         53 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\order\order.component.scss                      | SCSS               |        225 |         12 |         39 |        276 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\order\order.component.spec.ts                   | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\Client\order\order.component.ts                        | TypeScript         |         92 |          3 |         20 |        115 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\add-user\add-user.component.html                  | HTML               |         43 |          0 |          7 |         50 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\add-user\add-user.component.scss                  | SCSS               |         47 |          0 |         10 |         57 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\add-user\add-user.component.spec.ts               | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\add-user\add-user.component.ts                    | TypeScript         |         77 |          4 |         19 |        100 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\edit-user\edit-user.component.html                | HTML               |         40 |          0 |          8 |         48 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\edit-user\edit-user.component.scss                | SCSS               |         47 |          0 |         10 |         57 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\edit-user\edit-user.component.spec.ts             | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\edit-user\edit-user.component.ts                  | TypeScript         |        107 |          5 |         23 |        135 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\users\users.component.html                        | HTML               |         82 |          3 |         22 |        107 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\users\users.component.scss                        | SCSS               |          0 |          0 |          1 |          1 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\users\users.component.spec.ts                     | TypeScript         |         18 |          0 |          6 |         24 |
+| c:\Users\aymen\Desktop\main\src\app\pages\User\users\users.component.ts                          | TypeScript         |        136 |          4 |         36 |        176 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\authentication.module.ts                | TypeScript         |         33 |          1 |          5 |         39 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\authentication.routing.ts               | TypeScript         |         18 |          0 |          3 |         21 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\login\login.component.html              | HTML               |         38 |         35 |          9 |         82 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\login\login.component.scss              | SCSS               |         29 |          2 |          3 |         34 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\login\login.component.ts                | TypeScript         |         52 |          1 |         10 |         63 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\register\register.component.html        | HTML               |         78 |         16 |         12 |        106 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\register\register.component.scss        | SCSS               |         29 |          2 |          5 |         36 |
+| c:\Users\aymen\Desktop\main\src\app\pages\authentication\register\register.component.ts          | TypeScript         |         42 |          0 |          7 |         49 |
+| c:\Users\aymen\Desktop\main\src\app\pages\dashboard\dashboard.component.html                     | HTML               |        326 |         16 |         10 |        352 |
+| c:\Users\aymen\Desktop\main\src\app\pages\dashboard\dashboard.component.ts                       | TypeScript         |        377 |          6 |         22 |        405 |
+| c:\Users\aymen\Desktop\main\src\app\pages\dashboard\lol.html                                     | HTML               |         45 |          0 |          4 |         49 |
+| c:\Users\aymen\Desktop\main\src\app\pages\extra\extra.module.ts                                  | TypeScript         |         25 |          1 |          5 |         31 |
+| c:\Users\aymen\Desktop\main\src\app\pages\extra\extra.routing.ts                                 | TypeScript         |         18 |          1 |          4 |         23 |
+| c:\Users\aymen\Desktop\main\src\app\pages\extra\icons\icons.component.html                       | HTML               |          8 |          3 |          1 |         12 |
+| c:\Users\aymen\Desktop\main\src\app\pages\extra\icons\icons.component.ts                         | TypeScript         |         10 |          0 |          5 |         15 |
+| c:\Users\aymen\Desktop\main\src\app\pages\extra\sample-page\sample-page.component.html           | HTML               |          6 |          3 |          1 |         10 |
+| c:\Users\aymen\Desktop\main\src\app\pages\extra\sample-page\sample-page.component.ts             | TypeScript         |         10 |          0 |          5 |         15 |
+| c:\Users\aymen\Desktop\main\src\app\pages\pages.module.ts                                        | TypeScript         |         23 |          1 |          2 |         26 |
+| c:\Users\aymen\Desktop\main\src\app\pages\pages.routing.module.ts                                | TypeScript         |         11 |          0 |          2 |         13 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\badge\badge.component.html               | HTML               |         50 |          0 |          7 |         57 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\badge\badge.component.ts                 | TypeScript         |         14 |          0 |          7 |         21 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\chips\chips.component.html               | HTML               |        138 |         15 |          9 |        162 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\chips\chips.component.scss               | SCSS               |          6 |          0 |          1 |          7 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\chips\chips.component.ts                 | TypeScript         |         70 |         11 |         19 |        100 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\lists\lists.component.html               | HTML               |        155 |         21 |          9 |        185 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\lists\lists.component.ts                 | TypeScript         |         37 |          0 |          5 |         42 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\menu\menu.component.html                 | HTML               |        174 |          0 |          7 |        181 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\menu\menu.component.ts                   | TypeScript         |          8 |          0 |          5 |         13 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\tooltips\tooltips.component.html         | HTML               |        175 |          0 |          7 |        182 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\tooltips\tooltips.component.ts           | TypeScript         |         12 |          3 |          4 |         19 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\ui-components.module.ts                  | TypeScript         |         33 |          2 |          5 |         40 |
+| c:\Users\aymen\Desktop\main\src\app\pages\ui-components\ui-components.routing.ts                 | TypeScript         |         33 |          1 |          3 |         37 |
+| c:\Users\aymen\Desktop\main\src\app\services\nav.service.ts                                      | TypeScript         |         14 |          0 |          6 |         20 |
+| c:\Users\aymen\Desktop\main\src\assets\i18n\de.json                                              | JSON               |          7 |          0 |          1 |          8 |
+| c:\Users\aymen\Desktop\main\src\assets\i18n\en.json                                              | JSON               |          7 |          0 |          1 |          8 |
+| c:\Users\aymen\Desktop\main\src\assets\i18n\es.json                                              | JSON               |          7 |          0 |          1 |          8 |
+| c:\Users\aymen\Desktop\main\src\assets\i18n\fr.json                                              | JSON               |          7 |          0 |          1 |          8 |
+| c:\Users\aymen\Desktop\main\src\assets\images\backgrounds\login-bg.svg                           | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\aymen\Desktop\main\src\assets\images\logos\dark-logo.svg                                | XML                |          7 |          0 |          1 |          8 |
+| c:\Users\aymen\Desktop\main\src\assets\images\logos\lol.svg                                      | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\aymen\Desktop\main\src\assets\images\svgs\facebook-icon.svg                             | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\aymen\Desktop\main\src\assets\images\svgs\google-icon.svg                               | XML                |          6 |          0 |          1 |          7 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\_container.scss                                      | SCSS               |         68 |          0 |         18 |         86 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\_variables.scss                                      | SCSS               |         42 |          8 |         13 |         63 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\grid\_grid.scss                                      | SCSS               |         28 |          0 |          8 |         36 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\grid\_mixins.scss                                    | SCSS               |         63 |          2 |         15 |         80 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\grid\_variables.scss                                 | SCSS               |         16 |          0 |          2 |         18 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_border.scss                                 | SCSS               |         28 |          0 |          3 |         31 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_color.scss                                  | SCSS               |         34 |          0 |          6 |         40 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_custom-flex.scss                            | SCSS               |         13 |          0 |          3 |         16 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_display.scss                                | SCSS               |          8 |          0 |          4 |         12 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_flexbox.scss                                | SCSS               |         30 |          0 |          2 |         32 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_functions.scss                              | SCSS               |          8 |          1 |          3 |         12 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_icon-size.scss                              | SCSS               |         11 |          0 |          4 |         15 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_index.scss                                  | SCSS               |         44 |          2 |          8 |         54 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_rounded.scss                                | SCSS               |          8 |          0 |          2 |         10 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_spacing.scss                                | SCSS               |        121 |          0 |          3 |        124 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_text.scss                                   | SCSS               |         38 |          0 |          3 |         41 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\helpers\_variables.scss                              | SCSS               |         71 |          6 |         14 |         91 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\layouts\_header.scss                                 | SCSS               |         13 |          0 |          3 |         16 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\layouts\_layouts.scss                                | SCSS               |          2 |          0 |          3 |          5 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\layouts\_sidebar.scss                                | SCSS               |         65 |          1 |         11 |         77 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\layouts\_transitions.scss                            | SCSS               |         10 |          2 |          4 |         16 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_borderColor.scss                          | SCSS               |          6 |          1 |          2 |          9 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_buttons.scss                              | SCSS               |         36 |          0 |          7 |         43 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_card.scss                                 | SCSS               |         34 |          2 |          8 |         44 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_checkbox.scss                             | SCSS               |         32 |          0 |          4 |         36 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_drawer.scss                               | SCSS               |          6 |          0 |          4 |         10 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_form.scss                                 | SCSS               |         23 |          1 |          6 |         30 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_list.scss                                 | SCSS               |          3 |          0 |          0 |          3 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_materialoverrides.scss                    | SCSS               |         14 |          0 |          2 |         16 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_table.scss                                | SCSS               |          7 |          0 |          1 |          8 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\overrides\_typography.scss                           | SCSS               |         55 |          1 |          9 |         65 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\pages\_auth.scss                                     | SCSS               |         65 |          0 |          8 |         73 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\pages\_dashboards.scss                               | SCSS               |        105 |          1 |          8 |        114 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\style.scss                                           | SCSS               |         16 |          3 |          8 |         27 |
+| c:\Users\aymen\Desktop\main\src\assets\scss\themecolors\_default_theme.scss                      | SCSS               |         56 |          0 |          5 |         61 |
+| c:\Users\aymen\Desktop\main\src\index.html                                                       | HTML               |         16 |          0 |          1 |         17 |
+| c:\Users\aymen\Desktop\main\src\main.ts                                                          | TypeScript         |          4 |          0 |          4 |          8 |
+| c:\Users\aymen\Desktop\main\src\styles.scss                                                      | SCSS               |          2 |          1 |          2 |          5 |
+| c:\Users\aymen\Desktop\main\tsconfig.app.json                                                    | JSON               |         13 |          1 |          1 |         15 |
+| c:\Users\aymen\Desktop\main\tsconfig.json                                                        | JSON with Comments |         30 |          1 |          1 |         32 |
+| c:\Users\aymen\Desktop\main\tsconfig.spec.json                                                   | JSON               |         13 |          1 |          1 |         15 |
+| Total                                                                                            |                    |     20,341 |        371 |      1,365 |     22,077 |
++--------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

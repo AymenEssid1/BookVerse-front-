@@ -25,6 +25,8 @@ export class CartComponent implements OnInit {
     private cartService: CartService,
     private snackBar: MatSnackBar,
     private router: Router,
+    private pageUpdateService: PageUpdateService,
+
     private dialogRef: MatDialogRef<CartComponent>
   ) {}
 
@@ -82,7 +84,7 @@ export class CartComponent implements OnInit {
             this.getCart();
            this.decrementSum();
            this.snackBar.open('Removed from cart', 'Close', { duration: 2000 });
-
+           this.pageUpdateService.emitPageUpdated();
           },
           (error) => {
            
@@ -109,6 +111,7 @@ export class CartComponent implements OnInit {
             this.getCart();
             this.decrementSum2(quant);
             this.snackBar.open('Removed from cart', 'Close', { duration: 2000 });
+            this.pageUpdateService.emitPageUpdated();
           },
           (error) => {
            
