@@ -121,13 +121,16 @@ export class FrontPageComponent {
     });
 
   const storedResponse = this.cookieService.get('orderResponse');
+  console.log(storedResponse);
   if (storedResponse) {
     const response = JSON.parse(storedResponse);
+    console.log(response);
     // Extract the necessary parameters from the response and call the checkOrder function
     const orderId = response.order.id;
     const token = response.token;
     this.checkOrder(orderId, token);
     this.cookieService.delete('orderResponse');
+    console.log("hello");
 
   }
 
@@ -140,8 +143,9 @@ export class FrontPageComponent {
     (response) => {
       console.log('Order checked:', response); 
       if(response.status==="success")
-      { this.resetSum();
+      { 
         this.showAlert("successful payment",0);
+        this.resetSum();
         
       }
      

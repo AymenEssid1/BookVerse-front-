@@ -64,10 +64,11 @@ export class OrderComponent {
     this.paymentService.createOrder().subscribe(
       (response) => {
         console.log('Order created:', response); 
-        //this.iframeUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(response.url);
-        window.location.href = response.url; // Navigate to the URL directly
-        console.log(response.token +"    "+response.message);
         this.cookieService.set('orderResponse', JSON.stringify(response));
+        console.log(response.token +"    "+response.message);
+        window.location.href = response.url; // Navigate to the URL directly
+        
+        
        
 
       },

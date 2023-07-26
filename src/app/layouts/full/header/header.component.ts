@@ -53,12 +53,12 @@ export class HeaderComponent {
       this.decodeJwtToken(token).then((decodedToken: any) => {
         this.id = decodedToken.id; 
         this.role=decodedToken.role; 
-        console.log('Decoded JWT token:', decodedToken);
-        console.log(this.id);
+       // console.log('Decoded JWT token:', decodedToken);
+        //console.log(this.id);
         this.userService.getUserbyID(this.id).subscribe(
           (response) => {
             this.username = response.firstname;
-            console.log(response);
+           // console.log(response);
           },
           (error) => {
             console.error('Error retrieving user:', error);
@@ -69,7 +69,7 @@ export class HeaderComponent {
       });
     }
     this.getCart().then(() => {
-      console.log("Sum of quantities in ngOnInit:", this.sum);
+     // console.log("Sum of quantities in ngOnInit:", this.sum);
     });
 
     this.decrementSumSubscription = this.cartService.decrementSum$.subscribe(() => {
@@ -107,12 +107,12 @@ export class HeaderComponent {
       this.cartService.getCartbyUserId(id).subscribe(
         (response) => {
           this.cart = response;
-          console.log(this.cart.items);
+          //console.log(this.cart.items);
           this.sum = this.cart.items.reduce((accumulator:number, currentItem:{ id: number, book: any, quantity: number }) => {
             return accumulator + currentItem.quantity;
           }, 0);
           
-          console.log("Sum of quantities:", this.sum);
+          //console.log("Sum of quantities:", this.sum);
           
           resolve(); // Resolve the promise when the API call completes
         },

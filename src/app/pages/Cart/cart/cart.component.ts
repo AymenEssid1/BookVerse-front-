@@ -132,4 +132,8 @@ export class CartComponent implements OnInit {
 
   }
 
+  isCartEmpty(): boolean {
+    return this.cart.items.length === 0;
+  }
+
 }
