@@ -1,0 +1,46 @@
+/* Add any additional styling as needed */
+.green-tint {
+    background-color: #ffffff; /* Light green tint */
+    padding: 16px;
+    border-radius: 5%;
+    margin: 5px;
+    border-style: solid;
+    border-color: #2ecc71;
+  }
+  
+  .red-tint {
+    background-color: #ffffff; /* Light red tint */
+    padding: 16px;
+    border-radius: 5%;
+    margin: 5px;
+    border-style: solid;
+    border-color:#e74c3c;
+  }
+  
+  /* Make the tables display inline-block so they appear side by side */
+  .table-container {
+    display: inline-block;
+    width: 48%; /* Adjust the width as needed */
+    
+  }
+  .table-container.green-tint h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #2ecc71; /* Green color */
+    text-align: center;
+  }
+  .table-container.red-tint h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #e74c3c; /* Red color */
+    text-align: center;
+  }
+
+  .blue-tint {
+    background-color: #ffffff; /* Light red tint */
+    padding: 16px;
+    border-radius: 5%;
+    margin: 5px;
+    border-style: solid;
+    border-color:#0044ff;
+  }

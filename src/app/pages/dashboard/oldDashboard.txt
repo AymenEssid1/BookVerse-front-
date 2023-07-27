@@ -1,0 +1,46 @@
+export class AppDashboardComponent implements OnInit {
+  salesData: number[] = [];
+  months: string[] = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  
+  chartData: any[] = []; // Add this line to define chartData property
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit(): void {
+    this.dataService.getTotalSalesByYearAndMonth(2023).subscribe(
+      (data: number[]) => {
+        this.salesData = data;
+        console.log(this.salesData);
+        this.updateChart();
+      },
+      (error: any) => {
+        console.error('Error fetching sales data:', error);
+      }
+    );
+  }
+
+  salesOverviewChart: any = {
+    series: [],
+    dataLabels: {}, // Add dataLabels as needed
+    chart: {}, // Add chart options as needed
+    legend: {}, // Add legend options as needed
+    xaxis: {}, // Add xaxis options as needed
+    yaxis: {}, // Add yaxis options as needed
+    grid: {}, // Add grid options as needed
+    stroke: {}, // Add stroke options as needed
+    tooltip: {}, // Add tooltip options as needed
+    plotOptions: {} // Add plotOptions as needed
+  };
+
+  updateChart(): void {
+    this.salesOverviewChart.series = [
+      {
+        name: 'Sales',
+        data: this.salesData
+      }
+    ];
+  }
+}

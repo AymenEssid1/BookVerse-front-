@@ -3,12 +3,10 @@ import { UserService } from 'src/app/SERVICE/UserService';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { Subject, Observable, fromEvent } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 import { AddUserComponent } from '../add-user/add-user.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatTable } from '@angular/material/table';
 
 
 export interface usersData {

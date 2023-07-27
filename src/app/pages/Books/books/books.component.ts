@@ -51,6 +51,7 @@ export class BooksComponent implements OnInit {
     this.bookService.getBooks().subscribe(
       (response) => {
         this.books = response;
+        console.log(response);
         this.dataSource = new MatTableDataSource(this.books);
     this.dataSource.sort = this.sort;
       },

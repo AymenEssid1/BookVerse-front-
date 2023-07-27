@@ -6,7 +6,7 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Dashboard',
-    iconName: 'layout-dashboard',
+    iconName: 'report-analytics',
     route: '/dashboard',
   },
   {
@@ -24,6 +24,7 @@ export const navItems: NavItem[] = [
     iconName: 'home',
     route: '/front-page',
   },
+  /*
   
   {
     navCap: 'Ui Components',
@@ -55,7 +56,7 @@ export const navItems: NavItem[] = [
   },
  
   
- /* {
+  {
     navCap: 'Extra',
   },
   {
