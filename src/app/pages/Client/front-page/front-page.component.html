@@ -51,9 +51,8 @@
         <mat-card-header style="padding-bottom: 20px;">
           <mat-card-title>
             <div class="sort-header">
-              
-              <button class="filter-button" (click)="toggleSidebar()"><i
-                class="fas fa-filter"></i> Filter</button>
+
+              <button class="filter-button" (click)="toggleSidebar()"><i class="fas fa-filter"></i> Filter</button>
             </div>
 
           </mat-card-title>
@@ -98,29 +97,101 @@
     <div class="no-books-message" *ngIf="!sortedBooks ">
       No books found.
     </div>
+    <div class="row" >
+      <div class="cardBox" *ngFor="let book of sortedBooks" [ngClass]="{'new-book': !book.isBookOlderThanThreeDays}">
+        <div class="card">
+          
+          <img class="new-image" [src]="'./assets/images/logos/new.png'"  *ngIf="!book.isBookOlderThanThreeDays ">
 
-    <div class="row">
-      <div class="col-6 col-md-4 col-lg-3" *ngFor="let book of sortedBooks">
-    
-        <mat-card class="cardWithShadow productcard overflow-hidden">
-          <a (click)="openDetails(book.id)">
-            <img class="book-image" [src]="'http://localhost:8080/api/v1/book/image/' + book.id" />
-          </a>
-          <mat-card-content class="p-b-24 p-t-12 position-relative">
+          
+          <div class="book-item">
+            <div class="book-image-container">
+              <a (click)="openDetails(book.id)">
+                <img class="book-image" [src]="'http://localhost:8080/api/v1/book/image/' + book.id" />
+              </a>
+            </div>
+            <div class="book-details">
+              <span class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12 ml-2"
+                *ngIf="topBooksIds.includes(book.id)">
+                Top 3 Best Sellers
+              </span>
+              <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12 ml-2" *ngIf="book.quantity === 0">
+                Out of Stock
+              </span>
+              <span class="bg-light-primary text-primary rounded f-w-600 p-6 p-y-4 f-s-12 ml-2"
+                *ngIf="book.quantity >= 1 && book.quantity <= 25">
+                Limited Quantity
+              </span>
+            </div>
+          </div>
+          <div class="p-b-24 p-t-12 position-relative">
             <!-- Show the "Out of Stock" message if book.quantity is 0 -->
-            
-    
+
+
+            <div style="display: flex;">
+              <h5 style="color: black; text-align: left;">
+                {{book.name}}
+              </h5>
+              <button mat-mini-fab color="primary" class="icon-30 cart-btn" matTooltip="Add to Cart"
+                (click)="addToCart(book.id)" style="z-index: 3;">
+                <i-tabler name="basket" class="icon-16" style="z-index: 3;"></i-tabler>
+              </button>
+            </div>
+
+            <h6 class="mat-body-2 f-w-200" style="color: black; text-align: left;">{{book.author}}</h6>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <h6 class="mat-body-2 f-w-600">{{ book.price}} TND</h6>
+              </div>
+              <div class="rating-stars " style="color: black;">
+                <ng-container>
+
+                  {{book.averageReview}} ⭐
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+   <!--  <div class="row">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let book of sortedBooks">
+
+        <mat-card class="cardWithShadow productcard overflow-hidden">
+          <div class="book-item">
+            <div class="book-image-container">
+              <a (click)="openDetails(book.id)">
+                <img class="book-image" [src]="'http://localhost:8080/api/v1/book/image/' + book.id" />
+              </a>
+            </div>
+            <div class="book-details">
+              <span class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12 ml-2"
+                *ngIf="topBooksIds.includes(book.id)">
+                Top 3 Best Sellers
+              </span>
+              <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12 ml-2" *ngIf="book.quantity === 0">
+                Out of Stock
+              </span>
+              <span class="bg-light-primary text-primary rounded f-w-600 p-6 p-y-4 f-s-12 ml-2"
+                *ngIf="book.quantity >= 1 && book.quantity <= 25">
+                Limited Quantity
+              </span>
+            </div>
+          </div>
+
+
+          <mat-card-content class="p-b-24 p-t-12 position-relative">
+
+
             <button mat-mini-fab color="primary" class="icon-30 cart-btn" matTooltip="Add to Cart"
               (click)="addToCart(book.id)" [disabled]="book.quantity === 0" style="z-index: 3;">
               <i-tabler name="basket" class="icon-16" style="z-index: 3;"></i-tabler>
             </button>
             <mat-card-title class="mat-headline-2 f-s-16 m-b-4">
-              {{ book.name }}&nbsp; 
-              <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12 ml-2" *ngIf="book.quantity === 0">
-              
-                Out of Stock
-              </span>
-              <span class="bg-light-primary text-primary rounded f-w-600 p-6 p-y-4 f-s-12 ml-2" *ngIf="book.quantity >= 1 && book.quantity <= 25">Limited Quantity</span>
+              {{ book.name }}&nbsp;
+
               <h6 class="mat-body-2 f-w-200">{{ book.author }}</h6>
             </mat-card-title>
             <div class="d-flex align-items-center justify-content-between">
@@ -129,16 +200,19 @@
               </div>
               <div class="rating-stars">
                 <ng-container>
-                  
+
                   {{book.averageReview}}⭐
                 </ng-container>
               </div>
             </div>
           </mat-card-content>
         </mat-card>
-    
+
       </div>
-    </div>
-    
+
+
+    </div> -->
   </div>
-</div>
+
+
+  

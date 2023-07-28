@@ -30,6 +30,14 @@ export class DataService {
         const options = { headers, params };
         return this.http.get<any>(`${this.baseUrl}/MostSoldBooks`, options); // Pass the options object as the second argument
     }
+    getMostSoldBooksMini(period:number): Observable<any> {
+        const jwttoken: any = localStorage.getItem('jwtToken');
+
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${jwttoken}`);
+        const params = new HttpParams().set('period', period.toString());
+        const options = { headers, params };
+        return this.http.get<any>(`${this.baseUrl}/MostSoldBooksMini`, options); // Pass the options object as the second argument
+    }
 
 
     getLeastSoldBooks(period:number): Observable<any> {

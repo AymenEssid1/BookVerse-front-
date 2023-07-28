@@ -5,7 +5,15 @@
   /* Adjust this value to your desired height */
 }
 
-
+.new-image {
+  max-width: 60px;
+  max-height: 60px;
+  z-index: 999;
+  position: absolute;
+  top: 1px;
+  right:1px;
+  //transform: translate(50%, -50%);
+}
 
 .productcard {
   overflow: visible !important;
@@ -240,3 +248,105 @@
 
 /* Import the FontAwesome icon library (Make sure you've included it in your project) */
 @import '~@fortawesome/fontawesome-free/css/all.css';
+
+
+
+.book-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.book-image-container {
+  flex: 0 0 auto; /* Avoid image container to grow */
+  margin-right: 10px; /* Add some space between the image and spans */
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align spans to the right */
+}
+
+
+.book-details span {
+ width:110px;
+ text-align: center;
+}
+
+/* Use flex: 1 on all spans to distribute space evenly */
+.book-details span:first-child {
+  flex: 1;
+}
+
+
+.cardBox {
+  position: relative;
+  width: 350px;
+  height: 300px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
+    rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    padding: 50px;
+    margin:10px;
+    background-color: hsl(0, 0%, 0%);
+}
+.card {
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  background: #ffffff;
+  border-radius: 20px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+  padding: 20px;
+  cursor: pointer;
+  /*box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.5) 0px 18px 36px -18px inset;*/
+}
+
+.cardBox::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 150%;
+ // background: #40E0D0;
+//background: -webkit-linear-gradient(to right, #FF0080, #008cff, #40E0D0);
+//background: linear-gradient(to right, #FF0080, #008cff, #40E0D0);
+  animation: glowing01 5s linear infinite;
+  transform-origin: center;
+  animation: glowing 5s linear infinite;
+}
+.cardBox.new-book::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 150%;
+  background: #40E0D0;
+background: -webkit-linear-gradient(to right, #FF0080, #008cff, #40E0D0);
+background: linear-gradient(to right, #FF4500, #FFA500, #FFD700);
+  animation: glowing01 5s linear infinite;
+  transform-origin: center;
+  animation: glowing 5s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

@@ -10,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { paymentService } from 'src/app/SERVICE/paymentService';
+import { DataService } from 'src/app/SERVICE/DataService';
 
 
 
@@ -21,7 +22,20 @@ import { paymentService } from 'src/app/SERVICE/paymentService';
 
 export class FrontPageComponent {
 
-  
+  // Inside your component class
+// Inside your component class
+initializeSortedBooks(): void {
+  const THREE_DAYS_IN_MILLISECONDS = 3 * 24 * 60 * 60 * 1000;
+  const currentDate = new Date();
+
+  this.sortedBooks.forEach((book) => {
+    const createdAtDate = new Date(book.createdAt);
+    book.isBookOlderThanThreeDays = currentDate.getTime() - createdAtDate.getTime() > THREE_DAYS_IN_MILLISECONDS;
+    console.log(book.isBookOlderThanThreeDays);
+  });
+}
+
+
 
   sidebarHidden = true;
 
@@ -90,16 +104,39 @@ export class FrontPageComponent {
   paymentService: paymentService;
 
 
+
+
   constructor(paymentService:paymentService,private bookService: BookService,private sanitizer: DomSanitizer,private route: ActivatedRoute,
      private dialog: MatDialog,private cartService: CartService,private snackBar: MatSnackBar ,private cookieService:CookieService,
+     private dataService:DataService
      ) { this.paymentService = paymentService;}
-  ngOnInit() {
+     
+     
+    
+  
+    topBooksIds:any
+     ngOnInit() {
+    const currentDate = new Date();
+    this.dataService.getMostSoldBooksMini(currentDate.getFullYear()).subscribe(
+      (response)=> {
+        this.topBooksIds = response;
+       
+        console.log(this.topBooksIds);
+        
+      },
+      (error) => {
+        console.error('Error retrieving books:', error);
+       
+      }
+    
+    );
     this.bookService.getBooks().subscribe(
       (response) => {
         this.books = response;
         this.OGbooks=response;
         this.sortBooks('newest');
-        //console.log(this.sortedBooks);
+        this.initializeSortedBooks();
+        console.log(this.sortedBooks);
       },
       (error) => {
         console.error('Error retrieving books:', error);
