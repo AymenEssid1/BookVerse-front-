@@ -1,10 +1,12 @@
 .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 620px;
-    overflow: hidden; /* Add this line to hide the scroll bar */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 620px;
+  overflow: hidden; /* Add this line to hide the scroll bar */
+  color: #ffffff;
+  background-color: hsl(224, 100%, 68%);;
+}
   
   
   form {
@@ -22,8 +24,50 @@
   }
   
   .form-field {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
   }
+  
+  .form-field label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333; /* You can adjust the color */
+  }
+  
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    padding: 10px;
+    border: 1px solid #ddd; /* You can adjust the border color */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333; /* You can adjust the text color */
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: hsl(224, 100%, 68%);; /* Highlight color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional focus shadow */
+  }
+  
+  .form-field textarea {
+    resize: vertical;
+  }
+  
+  .form-field select {
+    appearance: none;
+    background: transparent;
+    background-image: url('/assets/images/logos/arrow.svg');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    padding-right: 25px;
+  }
+  
   
   label {
     display: block;
@@ -54,4 +98,63 @@
       color: red;
     }
   }
+   .form-field {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
   
+  .form-field label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333; /* You can adjust the color */
+  }
+  
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    padding: 10px;
+    border: 1px solid #ddd; /* You can adjust the border color */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333; /* You can adjust the text color */
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: hsl(224, 100%, 68%);; /* Highlight color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional focus shadow */
+  }
+  
+  .form-field textarea {
+    resize: vertical;
+  }
+  
+  .form-field select {
+    appearance: none;
+    background: transparent;
+    background-image: url('/assets/images/logos/arrow.svg');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    padding-right: 25px;
+  }
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(224, 100%, 68%);;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }

@@ -1,10 +1,12 @@
 .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 620px;
-    overflow: hidden; /* Add this line to hide the scroll bar */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 620px;
+  overflow: hidden; /* Add this line to hide the scroll bar */
+  color: #ffffff;
+  background-color: hsl(224, 100%, 68%);;
+}
   
   
   form {
@@ -27,6 +29,7 @@
   }
   
   label {
+    color: black;
     display: block;
     margin-bottom: 5px;
   }
@@ -39,4 +42,32 @@
   }
   
   
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(224, 100%, 68%);;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
   
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  .submit-button2 {
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 0%);;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }

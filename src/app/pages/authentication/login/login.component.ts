@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import axios from 'axios';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService } from 'ngx-toastr'; // Import ToastrService
 
 
 @Component({
@@ -14,7 +14,7 @@ export class AppSideLoginComponent {
   username: string;
   password: string;
 
-  constructor(private router: Router,private snackBar: MatSnackBar) {
+  constructor(private router: Router,private toastr: ToastrService) {
     
   }
 
@@ -45,18 +45,17 @@ login() {
     })
     .catch((error) => {
       if (error.response && error.response.status === 403) {
-        this.showSnackBar('Username or password incorrect');
+        this.toastr.error('Username or password incorrect');
       } else {
         console.error('Login failed:', error);
       }
     });
 }
 
-showSnackBar(message: string) {
-  this.snackBar.open(message, 'Close', {
-    duration: 3000, // Duration in milliseconds
-    horizontalPosition: 'center',
-    verticalPosition: 'bottom'
-  });
-}
+
+
+
+
+
+
 }

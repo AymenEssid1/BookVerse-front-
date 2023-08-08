@@ -350,3 +350,23 @@ background: linear-gradient(to right, #FF4500, #FFA500, #FFD700);
   }
 }
 
+/* Add this CSS at the end of your component's CSS styles */
+/* Chat Bubble */
+.chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 24px;
+  z-index: 50;
+}
+

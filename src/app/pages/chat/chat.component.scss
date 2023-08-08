@@ -1,0 +1,110 @@
+/* Add this CSS at the end of your component's CSS styles */
+.chat-container {
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: auto;
+   background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make sure the container takes the full height */
+
+  }
+  
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  
+    /* Customize the scrollbar */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #ffffff #f5f5f5; /* For Firefox */
+  
+    /* For WebKit-based browsers (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: #000000;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #ffffff;
+      border-radius: 4px;
+    }
+  
+    /* Style the thumb on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #ffffff;
+    }
+  }
+  
+  
+  .message {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    max-width: 70%;
+    word-break: break-word;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: rgb(0, 110, 255);
+    color: white;
+  }
+  
+  .self-message {
+    align-self: flex-end;
+    background-color: #ff0000;
+  }
+  
+  .sender-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: white;
+  }
+  
+  .sender-name {
+    font-weight: bold;
+  }
+  
+  .message-time {
+    font-size: 12px;
+    color: #000000;
+  }
+  
+  .chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and border in the total width */
+  }
+  
+  input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+ /* Add this CSS at the end of your component's CSS styles */
+button.send-button {
+    margin-left: 5px;
+    padding: 8px 15px;
+    background-color: #007bff; /* Set your desired background color */
+    color: #fff; /* Set the text color to white */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.send-button:hover {
+    background-color: #0056b3; /* Set the background color on hover */
+  }
+  

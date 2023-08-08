@@ -42,8 +42,11 @@ import { CartComponent } from './pages/Cart/cart/cart.component';
 import { OrderComponent } from './pages/Client/order/order.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HistoryComponent } from './pages/Client/history/history.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { AdminChatComponent } from './pages/AdminChat/admin-chat/admin-chat.component';
 
 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,10 @@ import { HistoryComponent } from './pages/Client/history/history.component';
     CartComponent,
     BookdetailComponent,
     OrderComponent,
-    HistoryComponent
+    HistoryComponent,
+    ChatComponent,
+    AdminChatComponent
+    
   ],
   imports: [
     
@@ -81,6 +87,8 @@ import { HistoryComponent } from './pages/Client/history/history.component';
     MatSortModule,
     TablerIconsModule.pick(TablerIcons),
     CarouselModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],

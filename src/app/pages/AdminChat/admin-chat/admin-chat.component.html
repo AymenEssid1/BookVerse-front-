@@ -1,0 +1,92 @@
+<div class="biggest">
+    <div class="big-container">
+
+        <div class="chats">
+            <!-- Other users list -->
+            <div *ngFor="let chat of chats" [ngClass]="{'unread': unreadMessages[chat.id]}"
+                class="friend-drawer friend-drawer--onhover" (click)="getmessages(chat.id); markAsRead(chat.id)"
+                (click)="changechatid(chat.id)">
+                <img class="profile-image" src="assets/images/profile/user-3.jpg" alt="">
+                <div class="text">
+                    <h6>{{ chat.user1.id !== this.id ? chat.user1.firstname : chat.user2.firstname }} {{ chat.user1.id
+                        !== this.id ? chat.user1.lastname : chat.user2.lastname }}</h6>
+                    <p style="font-size: x-small;">{{ chat.user1.id !== this.id ? chat.user1.email : chat.user2.email }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="chat-container">
+            
+
+            <div class="chat-messages" #chatMessages>
+                <div class="message" *ngFor="let message of messages"
+                    [ngClass]="{'self-message': message.email === email}">
+                    <div class="sender-info">
+                        <span class="sender-name">{{ message.email }}</span>
+                        &nbsp;
+                        <span class="message-time">{{ message.time | date: 'h:mm a' }}</span>
+                    </div>
+                    <div class="message-content">
+                        {{ message.content }}
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input [(ngModel)]="newMessage" (click)="Read(chatidTosendTo); markAsRead(chatidTosendTo)"
+                    (keydown.enter)="sendMessage2(chatidTosendTo)" placeholder="Type your message here..." />
+                <button class="send-button" (click)="sendMessage2(chatidTosendTo)">Send</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- 
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-4 border-right">
+                
+                <div *ngFor="let chat of chats" class="friend-drawer friend-drawer--onhover" (click)="getmessages(chat.id)">
+                    <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
+                    <div class="text">
+                        <h6>{{ chat.user2.firstname }} {{ chat.user2.lastname }}</h6>
+                    </div>
+                    <span class="time text-muted small">13:21</span>
+                </div>
+            </div>
+    
+            <div class="col-md-8">
+                <div class="settings-tray">
+                    <div class="friend-drawer no-gutters friend-drawer--grey">
+                        <img class="profile-image"
+                            src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
+                        <div class="text">
+                            <h6>Robo Cop</h6>
+                            <p class="text-muted">Layin' down the law since like before Christ...</p>
+                        </div>
+    
+                    </div>
+                </div>
+                
+                <div *ngFor="let message of messages" class="chat-panel">
+                    <div class="row no-gutters">
+                        <div class="col-md-3">
+                            <div class="chat-bubble chat-bubble--left">
+                                {{ message.content }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->

@@ -53,7 +53,7 @@ export class AddBookComponent {
   onSubmit() {
     
 
-    this.bookService.createBookV2(this.image, this.name, this.author, this.description, this.price, this.quantity, this.category, this.averageReview)
+    this.bookService.createBookV2(this.image, this.name, this.author, this.description, this.price, this.quantity, this.category, 0)
   .subscribe(
     (response) => {
       // Handle success response

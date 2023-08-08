@@ -7,6 +7,8 @@ import { BooksComponent } from './pages/Books/books/books.component';
 import { UsersComponent } from './pages/User/users/users.component';
 import { AuthGuard } from './SERVICE/auth.guard';
 import { OrderComponent } from './pages/Client/order/order.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { AdminChatComponent } from './pages/AdminChat/admin-chat/admin-chat.component';
 
 const routes: Routes = [
   {
@@ -45,13 +47,22 @@ const routes: Routes = [
       {
         path: 'users',
         pathMatch: 'full',
-        component: UsersComponent
+        component: UsersComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'adminchat',
+        pathMatch: 'full',
+        component: AdminChatComponent, canActivate: [AuthGuard]
       }
+
     ],
   },
   //////////////////////////////////////////
   { path: 'front-page', component: FrontPageComponent },
   { path: 'order', component: OrderComponent },
+  { path: 'chat', component: ChatComponent },
+
+  /////////************************************************///////////////////////////////////////////
 
   ///////////////////////////////////////////////
   {

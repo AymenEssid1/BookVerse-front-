@@ -1,6 +1,6 @@
 <div class="form-container">
     
-<h1>Add page</h1>
+<h1>Add a Book</h1>
 
 <form #myForm="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <label for="name">Name:</label>
@@ -24,12 +24,11 @@
     </select>
 
 
-    <label for="averageReview">Average Review:</label>
-    <input type="number" id="averageReview" [(ngModel)]="averageReview" name="averageReview" required>
+    
 
     <label for="image">Image:</label>
-    <input type="file" id="image" (change)="onFileSelected($event)" accept="image/*" required>
+    <input  class="submit-button2"  type="file" id="image" (change)="onFileSelected($event)" accept="image/*" required>
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="submit-button">Submit</button>
 </form>
 </div>

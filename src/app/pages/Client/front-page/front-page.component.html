@@ -40,6 +40,9 @@
 
   <div class="content" [ngStyle]="{ 'margin-left': sidebarHidden ? '0' : '20px' }">
 
+    <div class="chat-bubble" (click)="openChat()">
+      <i class="fa fa-comment"></i>
+    </div>
 
     <div class="book-card">
       <h2>BOOKS</h2>
@@ -62,30 +65,30 @@
             <div class="f-s-14">Sort by: </div>
 
             <mat-chip-option class="f-s-14" (click)="sortBooks('newest')"
-              [ngClass]="{'selected': sortingOption === 'newest', 'desc': !isSortOrderAscending}">
+              >
               Newest
             </mat-chip-option>
             <mat-chip-option class="f-s-14" (click)="sortBooks('oldest')" color="warn"
-              [ngClass]="{'selected': sortingOption === 'oldest', 'desc': !isSortOrderAscending}">
+             >
               Oldest
             </mat-chip-option>
 
-            <mat-chip-option class="f-s-14" (click)="sortBooks('price')"
-              [ngClass]="{'selected': sortingOption === 'price', 'desc': !isSortOrderAscending}">
+            <mat-chip-option class="f-s-14" (click)="sortBooks('price')">
+              
               Lowest Price
             </mat-chip-option>
 
             <mat-chip-option class="f-s-14" (click)="sortBooks('highestPrice')" color="warn"
-              [ngClass]="{'selected': sortingOption === 'highestPrice', 'desc': !isSortOrderAscending}">
+              >
               Highest Price
             </mat-chip-option>
 
             <mat-chip-option class="f-s-14" (click)="sortBooks('review')"
-              [ngClass]="{'selected': sortingOption === 'review', 'desc': !isSortOrderAscending}">
+              >
               Highest Review
             </mat-chip-option>
             <mat-chip-option class="f-s-14" (click)="sortBooks('lowestReview')" color="warn"
-              [ngClass]="{'selected': sortingOption === 'lowestReview', 'desc': !isSortOrderAscending}">
+              >
               Lowest Review
             </mat-chip-option>
           </mat-chip-listbox>

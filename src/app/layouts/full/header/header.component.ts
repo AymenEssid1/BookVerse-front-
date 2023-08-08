@@ -16,6 +16,7 @@ import { CartService } from 'src/app/SERVICE/CartService';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/SERVICE/UserService';
 import { HistoryComponent } from 'src/app/pages/Client/history/history.component';
+import { ChatComponent } from 'src/app/pages/chat/chat.component';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class HeaderComponent {
   @Output() toggleMobileFilterNav = new EventEmitter<void>();
   @Output() toggleCollapsed = new EventEmitter<void>();
   @Input() cart: any;
+  
   showFiller = false;
 
   constructor(private cartService :CartService,public dialog: MatDialog,private location: Location,private router: Router,
@@ -40,6 +42,7 @@ export class HeaderComponent {
   id: number;
   role:string;
   username:string;
+  user:any;
   //cart:any;
   sum:number;
   private decrementSumSubscription: Subscription;
@@ -58,6 +61,7 @@ export class HeaderComponent {
         this.userService.getUserbyID(this.id).subscribe(
           (response) => {
             this.username = response.firstname;
+            this.user=response
            // console.log(response);
           },
           (error) => {
@@ -177,6 +181,21 @@ export class HeaderComponent {
       height: '720px',
       disableClose: false,
       data: {id: this.id},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The popup was closed');
+      
+    });
+  }
+  
+  openChat(): void {
+  
+    const dialogRef = this.dialog.open(ChatComponent, {
+      width: '520px',
+      height: '520px',
+      disableClose: false,
+      data: {user: this.user},
     });
 
     dialogRef.afterClosed().subscribe(result => {

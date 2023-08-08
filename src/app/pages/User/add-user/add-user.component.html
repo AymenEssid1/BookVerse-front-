@@ -1,9 +1,9 @@
 <div class="form-container">
-    <h1>Add page</h1>
+    <h1>Add User</h1>
   
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="form-field">
-        <label for="firstname">firstname</label>
+        <label for="firstname">Firstname</label>
         <input type="text" id="firstname" formControlName="firstname">
         <div *ngIf="userForm.controls['firstname'].errors && userForm.controls['firstname'].errors['required']" class="error-message flash-red">
           First name is required.
@@ -19,7 +19,7 @@
       </div>
   
       <div class="form-field">
-        <label for="email">email</label>
+        <label for="email">Email</label>
         <input type="text" id="email" formControlName="email">
         <div *ngIf="userForm.controls['email'].errors?.['invalidEmail']" class="error-message flash-red">
           Invalid email format.
@@ -27,7 +27,7 @@
       </div>
   
       <div class="form-field">
-        <label for="password">password</label>
+        <label for="password">Password</label>
         <input type="text" id="password" formControlName="password">
         <div *ngIf="userForm.controls['password'].errors && userForm.controls['password'].errors['required']" class="error-message flash-red">
           Password is required.
@@ -44,7 +44,7 @@
         </div>
       </div>
   
-      <button type="submit">Add</button>
+      <button type="submit" class="submit-button">Add User</button>
     </form>
   </div>
   

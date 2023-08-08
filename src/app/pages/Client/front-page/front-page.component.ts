@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { paymentService } from 'src/app/SERVICE/paymentService';
 import { DataService } from 'src/app/SERVICE/DataService';
-
+import { ChatComponent } from 'src/app/pages/chat/chat.component';
 
 
 @Component({
@@ -76,7 +76,6 @@ initializeSortedBooks(): void {
   @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
 
 
-  @ViewChild('iframe') iframe: ElementRef;
   showIframe = false;
   iframeUrl: SafeResourceUrl = '';
 ////////////////////////////////////////////////////
@@ -116,6 +115,7 @@ initializeSortedBooks(): void {
   
     topBooksIds:any
      ngOnInit() {
+    
     const currentDate = new Date();
     this.dataService.getMostSoldBooksMini(currentDate.getFullYear()).subscribe(
       (response)=> {
@@ -326,32 +326,6 @@ initializeSortedBooks(): void {
     }
   }
 
-  /*getStars(averageReview: number): number[] {
-    const maxStars = 5;
-    const roundedRating = Math.round(averageReview * 2) / 2; // Round to the nearest 0.5
-
-    const fullStars = Math.floor(roundedRating); // Get the whole number part
-    const hasHalfStar = roundedRating % 1 !== 0; // Check if there is a half star
-
-    let stars: number[] = [];
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(1); // Add a filled star
-    }
-
-    if (hasHalfStar) {
-      stars.push(0.5); // Add a half star
-    }
-
-    const remainingStars = maxStars - stars.length; // Calculate the remaining empty stars
-
-    for (let i = 0; i < remainingStars; i++) {
-      stars.push(0); // Add an empty star
-    }
-
-    return stars;
-  }
-*/
 
   openDetails(bookId: number): void {
     this.bookId = bookId;
@@ -398,7 +372,33 @@ initializeSortedBooks(): void {
       style.remove();
     }, 3000);
   }
-  
+ 
   
 
+  
+
+  position = {
+    right: 50+ 'px',
+    bottom: '20px',
+  };
+
+  openChat(): void {
+   
+
+    const dialogRef = this.dialog.open(ChatComponent, {
+      width: '520px',
+      height: '520px',
+      position :this.position,
+      hasBackdrop: true,
+      disableClose: false,
+      data: { },
+    });
+
+    
+
+   
+  }
+
+ 
 }
+  

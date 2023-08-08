@@ -1,0 +1,26 @@
+
+<!-- <button (click)="getmessages()">Get Messages</button>
+  
+<button (click)="sendMessage()">Send Message</button> -->
+
+  
+<div class="chat-container">
+    <div class="chat-messages" #chatMessages>
+        <div class="message" *ngFor="let message of messages" [ngClass]="{'self-message': message.email === email}">
+          <div class="sender-info">
+            <span class="sender-name">{{ message.email }}</span>
+            &nbsp;
+            <span class="message-time">{{ message.time | date: 'h:mm a' }}</span>
+          </div>
+          <div class="message-content">
+            {{ message.content }}
+          </div>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input [(ngModel)]="newMessage" (keydown.enter)="sendMessage2(chat.id)" placeholder="Type your message here..." />
+        <button class="send-button" (click)="sendMessage2(52)">Send</button>
+      </div>
+     
+  </div>
+ 

@@ -20,10 +20,16 @@ export const navItems: NavItem[] = [
     route: '/users',
   },
   {
+    displayName: 'Chat',
+    iconName: 'messages',
+    route: '/adminchat',
+  },
+  {
     displayName: 'Front',
     iconName: 'home',
     route: '/front-page',
   },
+
   /*
   
   {
