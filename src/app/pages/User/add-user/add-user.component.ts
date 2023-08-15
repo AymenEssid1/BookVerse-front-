@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
 import { UserService } from 'src/app/SERVICE/UserService';
+import { NotificationService } from 'src/app/SERVICE/notificationService';
 
 const emailValidator = (control: FormControl) => {
   const email = control.value;
@@ -31,7 +32,7 @@ export class AddUserComponent {
     private userService: UserService,
     public dialogRef: MatDialogRef<EditBookComponent>,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar,
+    private notificationService :NotificationService,
     private pageUpdateService: PageUpdateService
   ){
     
@@ -62,7 +63,7 @@ export class AddUserComponent {
         (response) => {
           // Handle successful response from the backend
           console.log('User added successfully:', response);
-          this.openSnackBar('User added successfully!', 'Close');
+          this.notificationService.showSuccess('Close','User added successfully!');
           this.pageUpdateService.emitPageUpdated();
           this.userForm.reset();
         },
@@ -71,7 +72,7 @@ export class AddUserComponent {
           console.error('Error creating user', error);
           if (error.status === 409) {
             // Book with the same name already exists
-            this.openSnackBar('Email used already', 'Close');
+            this.notificationService.showError( 'Close','Email used already');
           }
           
         }
@@ -85,13 +86,7 @@ export class AddUserComponent {
 
 
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 3000, // Duration in milliseconds
-      horizontalPosition: 'center', // Position horizontally
-      verticalPosition: 'top' // Position vertically
-    });
-  }
+  
 
 
  

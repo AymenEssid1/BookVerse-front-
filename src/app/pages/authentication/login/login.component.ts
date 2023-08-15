@@ -3,6 +3,8 @@ import axios from 'axios';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'; // Import ToastrService
+import { NotificationService } from 'src/app/SERVICE/notificationService';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class AppSideLoginComponent {
   username: string;
   password: string;
 
-  constructor(private router: Router,private toastr: ToastrService) {
+  constructor(private router: Router,private notificationService :NotificationService) {
     
   }
 
@@ -45,7 +47,7 @@ login() {
     })
     .catch((error) => {
       if (error.response && error.response.status === 403) {
-        this.toastr.error('Username or password incorrect');
+        this.notificationService.showError('Username or password incorrect','Error');
       } else {
         console.error('Login failed:', error);
       }

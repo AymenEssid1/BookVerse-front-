@@ -38,6 +38,8 @@
     "ngx-cookie-service": "^16.0.0",
     "ngx-socket-io": "^4.5.1",
     "ngx-toastr": "^17.0.2",
+    "primeicons": "^6.0.1",
+    "primeng": "^15.4.7-lts",
     "rxjs": "~7.5.0",
     "sass": "^1.57.1",
     "socket.io-client": "^4.7.1",

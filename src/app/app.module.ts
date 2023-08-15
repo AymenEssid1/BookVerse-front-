@@ -47,6 +47,8 @@ import { AdminChatComponent } from './pages/AdminChat/admin-chat/admin-chat.comp
 
 
 import { ToastrModule } from 'ngx-toastr';
+import { NotificationService } from './SERVICE/notificationService';
+import { ToastModule } from 'primeng/toast'; // Import ToastModule from PrimeNG
 
 @NgModule({
   declarations: [
@@ -89,8 +91,10 @@ import { ToastrModule } from 'ngx-toastr';
     CarouselModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    ToastModule
   ],
   exports: [TablerIconsModule],
+  providers: [NotificationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

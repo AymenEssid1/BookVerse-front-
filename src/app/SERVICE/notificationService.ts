@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService, GlobalConfig  } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,13 @@ export class NotificationService {
   }
 
   showError(message:any, title:any){
+    console.log("SUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
     this.toastr.error(message, title)
 }
 
+
 showInfo(message:any, title:any){
+    console.log("SUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
     this.toastr.info(message, title)
 }
 }

@@ -169,7 +169,7 @@
   background-color: #f3f3f3;
   margin-top: 95px;
   padding: 20px;
-  
+  z-index: -1;
 
 }
 
@@ -370,3 +370,5 @@ background: linear-gradient(to right, #FF4500, #FFA500, #FFD700);
   z-index: 50;
 }
 
+////////////
+/// /* Position the toastr container at the top right corner */

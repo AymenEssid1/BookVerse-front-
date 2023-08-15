@@ -1,3 +1,4 @@
+
 <div class="bigHeader">
 
   <div style="width: 20%;"><app-branding></app-branding></div>
@@ -8,6 +9,7 @@
   <app-header></app-header>
 
 </div>
+
 <div class="carousel">
 
   <div class="carousel-container">
@@ -100,6 +102,7 @@
     <div class="no-books-message" *ngIf="!sortedBooks ">
       No books found.
     </div>
+    
     <div class="row" >
       <div class="cardBox" *ngFor="let book of sortedBooks" [ngClass]="{'new-book': !book.isBookOlderThanThreeDays}">
         <div class="card">

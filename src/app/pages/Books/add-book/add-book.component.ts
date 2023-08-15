@@ -6,8 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Component, Input,Inject, OnInit,EventEmitter,Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
+import { NotificationService } from 'src/app/SERVICE/notificationService';
 
 
 
@@ -34,7 +34,7 @@ export class AddBookComponent {
     private bookService: BookService,
     public dialogRef: MatDialogRef<EditBookComponent>,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar,
+    private notificationService :NotificationService,
     private pageUpdateService: PageUpdateService
   ){
     
@@ -57,7 +57,7 @@ export class AddBookComponent {
   .subscribe(
     (response) => {
       // Handle success response
-      this.openSnackBar('Book Added', 'Close');
+      this.notificationService.showSuccess( 'Close','Book Added');
       this.pageUpdateService.emitPageUpdated();
       this.resetForm();
       
@@ -67,11 +67,11 @@ export class AddBookComponent {
       console.error('Error creating book', error);
       if (error.status === 409) {
         // Book with the same name already exists
-        this.openSnackBar('Book with the same name already exists', 'Close');
+        this.notificationService.showError( 'Close','Book with the same name already exists');
       }
       if (error.status === 500) {
         // Book with the same name already exists
-        this.openSnackBar('Image required', 'Close');
+        this.notificationService.showError( 'Close','Image required');
       }
 
     }
@@ -80,14 +80,7 @@ export class AddBookComponent {
   }
 
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 3000, // Duration in milliseconds
-      horizontalPosition: 'center', // Position horizontally
-      verticalPosition: 'top' // Position vertically
-    });
-  }
-
+ 
   onFileSelected(event: any) {
     this.image = event.target.files[0];
   }

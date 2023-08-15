@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
+import { NotificationService } from 'src/app/SERVICE/notificationService';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class EditBookComponent {
     public dialogRef: MatDialogRef<EditBookComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { bookId: number }, //this shit injects the id from the parent componenet AKA books.compo
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar,
+    private notificationService :NotificationService,
     private pageUpdateService: PageUpdateService
   ) { }
 
@@ -108,10 +109,7 @@ export class EditBookComponent {
           console.log('Book updated successfully:', response);
           this.dialogRef.close();
 
-          this.snackBar.open('Book updated successfully', 'Close', {
-            duration: 3000,
-            verticalPosition: 'bottom',
-          });
+          this.notificationService.showSuccess("close","Book Edited successfully")
 
           this.pageUpdateService.emitPageUpdated();
         },
@@ -120,7 +118,7 @@ export class EditBookComponent {
           console.error('Error creating book', error);
           if (error.status === 409) {
             // Book with the same name already exists
-            this.openSnackBar('Book with the same name already exists', 'Close');
+            this.notificationService.showError( 'Close','Book with the same name already exists');
           }
         
         }
@@ -129,12 +127,6 @@ export class EditBookComponent {
   }
 
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 3000, // Duration in milliseconds
-      horizontalPosition: 'center', // Position horizontally
-      verticalPosition: 'top' // Position vertically
-    });
-  }
+  
 
 }

@@ -121,7 +121,7 @@ initializeSortedBooks(): void {
       (response)=> {
         this.topBooksIds = response;
        
-        console.log(this.topBooksIds);
+        console.log("top 3"+this.topBooksIds);
         
       },
       (error) => {

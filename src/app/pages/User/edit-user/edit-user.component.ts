@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PageUpdateService } from 'src/app/SERVICE/page-update.service';
+import { NotificationService } from 'src/app/SERVICE/notificationService';
 
 const emailValidator = (control: FormControl) => {
   const email = control.value;
@@ -28,7 +29,7 @@ export class EditUserComponent {
     public dialogRef: MatDialogRef<EditUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { userId: number }, //this shit injects the id from the parent componenet AKA books.compo
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar,
+    private notificationService :NotificationService,
     private pageUpdateService: PageUpdateService
   ) { }
 
@@ -105,7 +106,7 @@ export class EditUserComponent {
           console.log('User updated successfully:', response);
           this.dialogRef.close(); // Close the dialog
 
-          this.openSnackBar('User updated successfully', 'Close');
+          this.notificationService.showSuccess( 'Close','User updated successfully');
 
           this.pageUpdateService.emitPageUpdated();
         },
@@ -114,7 +115,7 @@ export class EditUserComponent {
           console.error('Error creating user', error);
           if (error.status === 409) {
             // Book with the same name already exists
-            this.openSnackBar('Email used already', 'Close');
+            this.notificationService.showError('Close','Email used already');
           }
 
         }
@@ -124,11 +125,5 @@ export class EditUserComponent {
   }
 
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 3000, // Duration in milliseconds
-      horizontalPosition: 'center', // Position horizontally
-      verticalPosition: 'top' // Position vertically
-    });
-  }
+  
 }

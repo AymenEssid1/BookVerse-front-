@@ -85,14 +85,6 @@ export type pie = {
 
 
 
-interface stats {
-  id: number;
-  time: string;
-  color: string;
-  title?: string;
-  subtext?: string;
-  link?: string;
-}
 
 
 @Component({
@@ -162,6 +154,9 @@ export class AppDashboardComponent {
   
     */
 
+    colorScheme = {
+      domain: ['#FF5733', '#E63A3A', '#FFC300', '#C4E538', '#00A8E8', '#8E44AD', '#F39C12'],
+    };
   constructor(private dataService: DataService) {
     // sales overview chart
     this.salesOverviewChart = {
@@ -357,12 +352,20 @@ export class AppDashboardComponent {
     };
     ///CATT*************************
     this.catChart = {
-      series: [44, 55, 13, 43, 22],
+      series: [44, 55, 13,0,0,0,0,0,0,0],
       chart: {
         width: 380,
         type: "pie"
       },
-      labels: ["Team 999", "Team B", "Team C", "Team D", "Team E"],
+      tooltip: {
+        enabled: true,
+        fillSeriesColor: true
+      },
+      colors: ["#000000", "#ff9800", "#80ff80", "#FF0000", "#00008B", "#9c27b0", "#ffc107", "#009688", "#673ab7", "#03a9f4"], //Add this line,
+      labels: ["Team 999", "Team B", "Team C"],
+      fill: {
+        colors: ["#000000", "#ff9800", "#80ff80", "#FF0000", "#00008B", "#9c27b0", "#ffc107", "#009688", "#673ab7", "#03a9f4"]
+      },
       responsive: [
         {
           breakpoint: 10,
@@ -371,7 +374,11 @@ export class AppDashboardComponent {
               width: 200
             },
             legend: {
-              position: "bottom"
+              position: "bottom",
+              markers: {
+                // Set the legend colors as the ones passed in
+                fillColors: ["#000000", "#ff9800", "#80ff80", "#FF0000", "#00008B", "#9c27b0", "#ffc107", "#009688", "#673ab7", "#03a9f4"]
+              }
             }
           }
         }
